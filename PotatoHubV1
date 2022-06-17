@@ -60,7 +60,7 @@ end
 
 local function tp()
 	local Player = game:GetService("Players"):FindFirstChild(TPConfig.Text)
-	
+
 	if Player then
 		local Char1 = Player.Character.UpperTorso.Position.X
 		local Char2 = Player.Character.UpperTorso.Position.Y
@@ -71,11 +71,11 @@ local function tp()
 end
 
 local function spamintent()
-	
-		wait()
-		local args = {[1] = {[1] = "Skill_KillingIntent_Start"}}
-		Rep.RemoteEvent:FireServer(unpack(args))
-	
+
+	wait()
+	local args = {[1] = {[1] = "Skill_KillingIntent_Start"}}
+	Rep.RemoteEvent:FireServer(unpack(args))
+
 end
 
 local function spamfireball()
@@ -84,10 +84,10 @@ local function spamfireball()
 	local PlrPos2 = Plr.Character.UpperTorso.Position.Y
 	local PlrPos3 = Plr.Character.UpperTorso.Position.Z
 	local args = {
-		
+
 		[1] = "Skill_SpherePunch",
 		[2] = PlrPos1,PlrPos2,PlrPos3
-		
+
 	}
 	Rep.RemoteEvent:FireServer(unpack(args))
 end
@@ -95,7 +95,7 @@ end
 local function reap()
 	local Pl1 = game:GetService("Players"):FindFirstChild(Player1Config.Text)
 	local Pl2 = game:GetService("Players"):FindFirstChild(Player2Config.Text)
-	
+
 	if Pl1 then
 		local a = {[1] = {[1] = "Skill_SoulReap",[2] = Pl1}}
 		game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(a))
@@ -144,7 +144,7 @@ GotoPlayerPG.MouseButton1Click:Connect(function()
 	GotoPlayerPG.BackgroundColor3 = Color3.fromRGB(49, 5, 86)
 	GotoMiscPG.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 	GotoEnemyPG.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-	
+
 end)
 
 GotoMiscPG.Name = "GotoMiscPG"
@@ -503,7 +503,7 @@ SpamIntent.MouseButton1Click:Connect(function()
 		repeat
 			spamintent()
 		until SpamIntent.BackgroundColor3 == Color3.fromRGB(25, 25, 25)
-		
+
 	else
 		SpamIntent.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 	end
@@ -619,4 +619,14 @@ Plr.Chatted:Connect(function(msg)
 		ScreenGui:Destroy()
 		Top:Destroy()
 	end
+end)
+
+UIP.InputBegan:Connect(function(input)
+	if input.KeyCode == Enum.KeyCode.Minus then
+		if Top.Visible == true then
+			Top.Visible = false
+		else
+			Top.Visible = true
+		end
+	end	
 end)
