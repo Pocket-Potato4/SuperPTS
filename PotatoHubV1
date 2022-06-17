@@ -100,7 +100,7 @@ local function reap()
 		local a = {[1] = {[1] = "Skill_SoulReap",[2] = Pl1}}
 		game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(a))
 	end
-	wait(1)
+	wait(1.5)
 	if Pl2 then
 		local b = {[1] = {[1] = "Skill_SoulReap",[2] = Pl2}}
 		game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(b))
@@ -287,7 +287,7 @@ Title.BackgroundTransparency = 1.000
 Title.Position = UDim2.new(-0.0502283089, 0, 0, 0)
 Title.Size = UDim2.new(0, 276, 0, 68)
 Title.Font = Enum.Font.RobotoCondensed
-Title.Text = "Potato Hub V1"
+Title.Text = "Potato Hub V1.1"
 Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.TextSize = 30.000
 
