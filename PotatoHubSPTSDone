@@ -1,0 +1,961 @@
+
+
+
+local Tws = game:GetService("TweenService")
+local Rep = game:GetService("ReplicatedStorage")
+local Uip = game:GetService("UserInputService")
+local Plr = game:GetService("Players").LocalPlayer
+local ScreenGui = Instance.new("ScreenGui")
+local Top = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local SideBar = Instance.new("Frame")
+local GotoPlrPG = Instance.new("TextButton")
+local GotoMiscPG = Instance.new("TextButton")
+local GotoTeleportPG = Instance.new("TextButton")
+local GotoStatCheckerPG = Instance.new("TextButton")
+local GotoFarmPG = Instance.new("TextButton")
+local PlrPG = Instance.new("ScrollingFrame")
+local Respawn = Instance.new("TextButton")
+local ButtonTitle = Instance.new("TextLabel")
+local ButtonDescription = Instance.new("TextLabel")
+local Split = Instance.new("TextButton")
+local ButtonTitle_2 = Instance.new("TextLabel")
+local ButtonDescription_2 = Instance.new("TextLabel")
+local TextLabel = Instance.new("TextLabel")
+local MiscPG = Instance.new("ScrollingFrame")
+local SpamIntent = Instance.new("TextButton")
+local ButtonTitle_3 = Instance.new("TextLabel")
+local ButtonDescription_3 = Instance.new("TextLabel")
+local SpamIntent_2 = Instance.new("TextButton")
+local ButtonTitle_4 = Instance.new("TextLabel")
+local ButtonDescription_4 = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+local TeleportsPG = Instance.new("ScrollingFrame")
+local TPtoPlr = Instance.new("TextButton")
+local ButtonTitle_5 = Instance.new("TextLabel")
+local ButtonDescription_5 = Instance.new("TextLabel")
+local TPConfig = Instance.new("TextBox")
+local SavePos = Instance.new("TextButton")
+local ButtonTitle_6 = Instance.new("TextLabel")
+local ButtonDescription_6 = Instance.new("TextLabel")
+local GotoPos = Instance.new("TextButton")
+local ButtonTitle_7 = Instance.new("TextLabel")
+local ButtonDescription_7 = Instance.new("TextLabel")
+local FarmPG = Instance.new("ScrollingFrame")
+local FarmMS = Instance.new("TextButton")
+local ButtonTitle_8 = Instance.new("TextLabel")
+local ButtonDescription_8 = Instance.new("TextLabel")
+local FarmJF = Instance.new("TextButton")
+local ButtonTitle_9 = Instance.new("TextLabel")
+local ButtonDescription_9 = Instance.new("TextLabel")
+local FarmBT = Instance.new("TextButton")
+local ButtonTitle_10 = Instance.new("TextLabel")
+local ButtonDescription_10 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
+local FarmFS = Instance.new("TextButton")
+local ButtonTitle_11 = Instance.new("TextLabel")
+local ButtonDescription_11 = Instance.new("TextLabel")
+local FarmPP = Instance.new("TextButton")
+local ButtonTitle_12 = Instance.new("TextLabel")
+local ButtonDescription_12 = Instance.new("TextLabel")
+local StatCheckerPG = Instance.new("ScrollingFrame")
+local Check = Instance.new("TextButton")
+local ButtonTitle_13 = Instance.new("TextLabel")
+local ButtonDescription_13 = Instance.new("TextLabel")
+local ConfigStatCheck = Instance.new("TextBox")
+local FSVal = Instance.new("TextLabel")
+local BTVal = Instance.new("TextLabel")
+local PPVal = Instance.new("TextLabel")
+local TextLabel_4 = Instance.new("TextLabel")
+local TextLabel_5 = Instance.new("TextLabel")
+local TextLabel_6 = Instance.new("TextLabel")
+
+
+local function respawn()
+	local Pos0 = Plr.Character.UpperTorso.Position.X
+	local Pos1 = Plr.Character.UpperTorso.Position.Y
+	local Pos2 = Plr.Character.UpperTorso.Position.Z
+	Rep.RemoteEvent:FireServer({"Respawn"})
+	wait(1.7)
+	Tws:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1.2), {CFrame = CFrame.new(Pos0,Pos1,Pos2)}):Play()
+end
+
+local function spamIntent()
+	repeat
+		wait()
+		local intent = {[1] = {[1] = "Skill_KillingIntent_Start"}}
+
+		game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(intent))
+	until SpamIntent.BackgroundColor3 == Color3.fromRGB(33, 33, 33)
+end
+
+local function energybarrier()
+
+	repeat
+		wait()
+		
+		local Pos0 = Plr.Character.UpperTorso.Position.X
+		local Pos1 = Plr.Character.UpperTorso.Position.Y
+		local Pos2 = Plr.Character.UpperTorso.Position.Z
+		
+		local energy = {[1] = 
+			{[1] = "Skill_SpherePunch",[2] = Vector3.new(Pos0,0,Pos2)}}
+			
+		game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(energy))
+
+	until SpamIntent_2.BackgroundColor3 == Color3.fromRGB(33,33,33)
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Top.Name = "Top"
+Top.Parent = ScreenGui
+Top.BackgroundColor3 = Color3.fromRGB(150, 43, 50)
+Top.Position = UDim2.new(0.304242462, 0, 0.220858902, 0)
+Top.Size = UDim2.new(0, 647, 0, 43)
+Top.Active = true
+Top.Draggable = true
+
+UICorner.Parent = Top
+
+SideBar.Name = "SideBar"
+SideBar.Parent = Top
+SideBar.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+SideBar.BorderSizePixel = 0
+SideBar.Position = UDim2.new(-0.00205835328, 0, 0.78125, 0)
+SideBar.Size = UDim2.new(0, 138, 0, 501)
+
+GotoPlrPG.Name = "GotoPlrPG"
+GotoPlrPG.Parent = SideBar
+GotoPlrPG.BackgroundColor3 = Color3.fromRGB(150, 43, 50)
+GotoPlrPG.BorderSizePixel = 0
+GotoPlrPG.Position = UDim2.new(0.0797101483, 0, 0.118175879, 0)
+GotoPlrPG.Size = UDim2.new(0, 116, 0, 26)
+GotoPlrPG.Font = Enum.Font.SourceSans
+GotoPlrPG.Text = "Local Player"
+GotoPlrPG.TextColor3 = Color3.fromRGB(255, 255, 255)
+GotoPlrPG.TextSize = 14.000
+GotoPlrPG.MouseButton1Click:Connect(function()
+	
+	PlrPG.Visible = true
+	MiscPG.Visible = false
+	TeleportsPG.Visible = false
+	StatCheckerPG.Visible = false
+	FarmPG.Visible = false
+	--------------------------------
+	GotoPlrPG.BackgroundColor3 = Color3.fromRGB(150, 43, 50)
+	GotoMiscPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+	GotoFarmPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+	GotoTeleportPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+	GotoStatCheckerPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+	
+end)
+
+GotoMiscPG.Name = "GotoMiscPG"
+GotoMiscPG.Parent = SideBar
+GotoMiscPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+GotoMiscPG.BorderSizePixel = 0
+GotoMiscPG.Position = UDim2.new(0.0797101483, 0, 0.207996249, 0)
+GotoMiscPG.Size = UDim2.new(0, 116, 0, 26)
+GotoMiscPG.Font = Enum.Font.SourceSans
+GotoMiscPG.Text = "Misc and Glitches"
+GotoMiscPG.TextColor3 = Color3.fromRGB(255, 255, 255)
+GotoMiscPG.TextSize = 14.000
+GotoMiscPG.MouseButton1Click:Connect(function()
+	
+	PlrPG.Visible = false
+	MiscPG.Visible = true
+	TeleportsPG.Visible = false
+	StatCheckerPG.Visible = false
+	FarmPG.Visible = false
+	--------------------------------
+	GotoPlrPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+	GotoMiscPG.BackgroundColor3 = Color3.fromRGB(150, 43, 50)
+	GotoFarmPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+	GotoTeleportPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+	GotoStatCheckerPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+	
+end)
+
+GotoTeleportPG.Name = "GotoTeleportPG"
+GotoTeleportPG.Parent = SideBar
+GotoTeleportPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+GotoTeleportPG.BorderSizePixel = 0
+GotoTeleportPG.Position = UDim2.new(0.0797101483, 0, 0.301808625, 0)
+GotoTeleportPG.Size = UDim2.new(0, 116, 0, 26)
+GotoTeleportPG.Font = Enum.Font.SourceSans
+GotoTeleportPG.Text = "Teleports"
+GotoTeleportPG.TextColor3 = Color3.fromRGB(255, 255, 255)
+GotoTeleportPG.TextSize = 14.000
+GotoTeleportPG.MouseButton1Click:Connect(function()
+	
+	PlrPG.Visible = false
+	MiscPG.Visible = false
+	TeleportsPG.Visible = true
+	StatCheckerPG.Visible = false
+	FarmPG.Visible = false
+	--------------------------------
+	GotoPlrPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+	GotoMiscPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+	GotoFarmPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+	GotoTeleportPG.BackgroundColor3 = Color3.fromRGB(150, 43, 50)
+	GotoStatCheckerPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+	
+end)
+
+GotoStatCheckerPG.Name = "GotoStatCheckerPG"
+GotoStatCheckerPG.Parent = SideBar
+GotoStatCheckerPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+GotoStatCheckerPG.BorderSizePixel = 0
+GotoStatCheckerPG.Position = UDim2.new(0.0797101483, 0, 0.401609004, 0)
+GotoStatCheckerPG.Size = UDim2.new(0, 116, 0, 26)
+GotoStatCheckerPG.Font = Enum.Font.SourceSans
+GotoStatCheckerPG.Text = "StatChecker"
+GotoStatCheckerPG.TextColor3 = Color3.fromRGB(255, 255, 255)
+GotoStatCheckerPG.TextSize = 14.000
+GotoStatCheckerPG.MouseButton1Click:Connect(function()
+	
+	PlrPG.Visible = false
+	MiscPG.Visible = false
+	TeleportsPG.Visible = false
+	StatCheckerPG.Visible = true
+	FarmPG.Visible = false
+	--------------------------------
+	GotoPlrPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+	GotoMiscPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+	GotoFarmPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+	GotoTeleportPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+	GotoStatCheckerPG.BackgroundColor3 = Color3.fromRGB(150, 43, 50)
+	
+end)
+
+GotoFarmPG.Name = "GotoFarmPG"
+GotoFarmPG.Parent = SideBar
+GotoFarmPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+GotoFarmPG.BorderSizePixel = 0
+GotoFarmPG.Position = UDim2.new(0.0797101483, 0, 0.49542138, 0)
+GotoFarmPG.Size = UDim2.new(0, 116, 0, 26)
+GotoFarmPG.Font = Enum.Font.SourceSans
+GotoFarmPG.Text = "Farm"
+GotoFarmPG.TextColor3 = Color3.fromRGB(255, 255, 255)
+GotoFarmPG.TextSize = 14.000
+GotoFarmPG.MouseButton1Click:Connect(function()
+	
+	PlrPG.Visible = false
+	MiscPG.Visible = false
+	TeleportsPG.Visible = false
+	StatCheckerPG.Visible = false
+	FarmPG.Visible = true
+	--------------------------------
+	GotoPlrPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+	GotoMiscPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+	GotoFarmPG.BackgroundColor3 = Color3.fromRGB(150, 43, 50)
+	GotoTeleportPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+	GotoStatCheckerPG.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+	
+end)
+
+PlrPG.Name = "PlrPG"
+PlrPG.Parent = Top
+PlrPG.Active = true
+PlrPG.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+PlrPG.BorderSizePixel = 0
+PlrPG.Position = UDim2.new(0.211971357, 0, 0.786043167, 0)
+PlrPG.Size = UDim2.new(0, 509, 0, 501)
+
+Respawn.Name = "Respawn"
+Respawn.Parent = PlrPG
+Respawn.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+Respawn.BorderSizePixel = 0
+Respawn.Position = UDim2.new(-0.00196463661, 0, 0.149700597, 0)
+Respawn.Size = UDim2.new(0, 509, 0, 55)
+Respawn.Font = Enum.Font.SourceSans
+Respawn.Text = ""
+Respawn.TextColor3 = Color3.fromRGB(255, 255, 255)
+Respawn.TextSize = 14.000
+Respawn.MouseButton1Click:Connect(function()
+	respawn()
+end)
+
+ButtonTitle.Name = "ButtonTitle"
+ButtonTitle.Parent = Respawn
+ButtonTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle.BackgroundTransparency = 1.000
+ButtonTitle.Position = UDim2.new(0.0510805547, 0, -0.127272725, 0)
+ButtonTitle.Size = UDim2.new(0, 200, 0, 44)
+ButtonTitle.Font = Enum.Font.SourceSans
+ButtonTitle.Text = "Respawn"
+ButtonTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle.TextSize = 26.000
+ButtonTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+ButtonDescription.Name = "ButtonDescription"
+ButtonDescription.Parent = Respawn
+ButtonDescription.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription.BackgroundTransparency = 1.000
+ButtonDescription.Position = UDim2.new(0.0516208746, 0, 0.377272725, 0)
+ButtonDescription.Size = UDim2.new(0, 320, 0, 44)
+ButtonDescription.Font = Enum.Font.SourceSans
+ButtonDescription.Text = "Instant Respawn and returns player to location "
+ButtonDescription.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription.TextSize = 19.000
+ButtonDescription.TextXAlignment = Enum.TextXAlignment.Left
+
+Split.Name = "Split"
+Split.Parent = PlrPG
+Split.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+Split.BorderSizePixel = 0
+Split.Position = UDim2.new(0, 0, 0.273453116, 0)
+Split.Size = UDim2.new(0, 509, 0, 55)
+Split.Font = Enum.Font.SourceSans
+Split.Text = ""
+Split.TextColor3 = Color3.fromRGB(255, 255, 255)
+Split.TextSize = 14.000
+Split.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character.UpperTorso.Waist:Remove()
+end)
+
+ButtonTitle_2.Name = "ButtonTitle"
+ButtonTitle_2.Parent = Split
+ButtonTitle_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_2.BackgroundTransparency = 1.000
+ButtonTitle_2.Position = UDim2.new(0.0510805547, 0, -0.127272725, 0)
+ButtonTitle_2.Size = UDim2.new(0, 200, 0, 44)
+ButtonTitle_2.Font = Enum.Font.SourceSans
+ButtonTitle_2.Text = "Split"
+ButtonTitle_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_2.TextSize = 26.000
+ButtonTitle_2.TextXAlignment = Enum.TextXAlignment.Left
+
+ButtonDescription_2.Name = "ButtonDescription"
+ButtonDescription_2.Parent = Split
+ButtonDescription_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_2.BackgroundTransparency = 1.000
+ButtonDescription_2.Position = UDim2.new(0.0516208746, 0, 0.377272725, 0)
+ButtonDescription_2.Size = UDim2.new(0, 270, 0, 44)
+ButtonDescription_2.Font = Enum.Font.SourceSans
+ButtonDescription_2.Text = "Splits Your body in half... nothing else"
+ButtonDescription_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_2.TextSize = 19.000
+ButtonDescription_2.TextXAlignment = Enum.TextXAlignment.Left
+
+TextLabel.Parent = PlrPG
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.239685655, 0, 0.0179640725, 0)
+TextLabel.Size = UDim2.new(0, 200, 0, 50)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Chracter"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 30.000
+
+MiscPG.Name = "MiscPG"
+MiscPG.Parent = Top
+MiscPG.Active = true
+MiscPG.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+MiscPG.BorderSizePixel = 0
+MiscPG.Position = UDim2.new(0.211971357, 0, 0.786043167, 0)
+MiscPG.Size = UDim2.new(0, 509, 0, 501)
+MiscPG.Visible = false
+
+SpamIntent.Name = "SpamIntent"
+SpamIntent.Parent = MiscPG
+SpamIntent.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+SpamIntent.BorderSizePixel = 0
+SpamIntent.Position = UDim2.new(-0.00196463661, 0, 0.117764473, 0)
+SpamIntent.Size = UDim2.new(0, 509, 0, 55)
+SpamIntent.Font = Enum.Font.SourceSans
+SpamIntent.Text = ""
+SpamIntent.TextColor3 = Color3.fromRGB(255, 255, 255)
+SpamIntent.TextSize = 14.000
+SpamIntent.MouseButton1Click:Connect(function()
+	if SpamIntent.BackgroundColor3 == Color3.fromRGB(33, 33, 33) then
+		SpamIntent.BackgroundColor3 = Color3.fromRGB(150, 43, 50)
+		spamIntent()
+	else
+		SpamIntent.BackgroundColor3 = Color3.fromRGB(33,33,33)
+	end
+	
+end)
+
+ButtonTitle_3.Name = "ButtonTitle"
+ButtonTitle_3.Parent = SpamIntent
+ButtonTitle_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_3.BackgroundTransparency = 1.000
+ButtonTitle_3.Position = UDim2.new(0.0510805547, 0, -0.127272725, 0)
+ButtonTitle_3.Size = UDim2.new(0, 200, 0, 44)
+ButtonTitle_3.Font = Enum.Font.SourceSans
+ButtonTitle_3.Text = "Spam Killing Intent"
+ButtonTitle_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_3.TextSize = 26.000
+ButtonTitle_3.TextXAlignment = Enum.TextXAlignment.Left
+
+ButtonDescription_3.Name = "ButtonDescription"
+ButtonDescription_3.Parent = SpamIntent
+ButtonDescription_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_3.BackgroundTransparency = 1.000
+ButtonDescription_3.Position = UDim2.new(0.0516208746, 0, 0.377272725, 0)
+ButtonDescription_3.Size = UDim2.new(0, 320, 0, 44)
+ButtonDescription_3.Font = Enum.Font.SourceSans
+ButtonDescription_3.Text = "Spams killing intent until the function is turned off"
+ButtonDescription_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_3.TextSize = 19.000
+ButtonDescription_3.TextXAlignment = Enum.TextXAlignment.Left
+
+SpamIntent_2.Name = "SpamIntent" -- Energy Shield
+SpamIntent_2.Parent = MiscPG
+SpamIntent_2.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+SpamIntent_2.BorderSizePixel = 0
+SpamIntent_2.Position = UDim2.new(-0.00196463661, 0, 0.259481043, 0)
+SpamIntent_2.Size = UDim2.new(0, 509, 0, 55)
+SpamIntent_2.Font = Enum.Font.SourceSans
+SpamIntent_2.Text = ""
+SpamIntent_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+SpamIntent_2.TextSize = 14.000
+SpamIntent_2.MouseButton1Click:Connect(function()
+	if SpamIntent_2.BackgroundColor3 == Color3.fromRGB(33, 33, 33) then
+		SpamIntent_2.BackgroundColor3 = Color3.fromRGB(150, 43, 50)
+		energybarrier()
+	else
+		SpamIntent_2.BackgroundColor3 = Color3.fromRGB(33,33,33)
+	end
+
+end)
+
+
+
+ButtonTitle_4.Name = "ButtonTitle"
+ButtonTitle_4.Parent = SpamIntent_2
+ButtonTitle_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_4.BackgroundTransparency = 1.000
+ButtonTitle_4.Position = UDim2.new(0.0510805547, 0, -0.127272725, 0)
+ButtonTitle_4.Size = UDim2.new(0, 200, 0, 44)
+ButtonTitle_4.Font = Enum.Font.SourceSans
+ButtonTitle_4.Text = "Energy Shield"
+ButtonTitle_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_4.TextSize = 26.000
+ButtonTitle_4.TextXAlignment = Enum.TextXAlignment.Left
+
+ButtonDescription_4.Name = "ButtonDescription"
+ButtonDescription_4.Parent = SpamIntent_2
+ButtonDescription_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_4.BackgroundTransparency = 1.000
+ButtonDescription_4.Position = UDim2.new(0.0516208746, 0, 0.377272725, 0)
+ButtonDescription_4.Size = UDim2.new(0, 320, 0, 44)
+ButtonDescription_4.Font = Enum.Font.SourceSans
+ButtonDescription_4.Text = "Creates a killing intent like field with your fireball"
+ButtonDescription_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_4.TextSize = 19.000
+ButtonDescription_4.TextXAlignment = Enum.TextXAlignment.Left
+
+TextLabel_2.Parent = MiscPG
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Position = UDim2.new(0.243614927, 0, -0.00199600682, 0)
+TextLabel_2.Size = UDim2.new(0, 200, 0, 50)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = "Spams"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextSize = 30.000
+
+TeleportsPG.Name = "TeleportsPG"
+TeleportsPG.Parent = Top
+TeleportsPG.Active = true
+TeleportsPG.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+TeleportsPG.BorderSizePixel = 0
+TeleportsPG.Position = UDim2.new(0.211971357, 0, 0.786043167, 0)
+TeleportsPG.Selectable = false
+TeleportsPG.Size = UDim2.new(0, 509, 0, 501)
+TeleportsPG.Visible = false
+TeleportsPG.CanvasSize = UDim2.new(0, 0, 25, 0)
+
+TPtoPlr.Name = "TPtoPlr"
+TPtoPlr.Parent = TeleportsPG
+TPtoPlr.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+TPtoPlr.BorderSizePixel = 0
+TPtoPlr.Position = UDim2.new(-0.00196463661, 0, 0.0632205531, 0)
+TPtoPlr.Size = UDim2.new(0, 509, 0, 55)
+TPtoPlr.Font = Enum.Font.SourceSans
+TPtoPlr.Text = ""
+TPtoPlr.TextColor3 = Color3.fromRGB(255, 255, 255)
+TPtoPlr.TextSize = 14.000
+TPtoPlr.MouseButton1Click:Connect(function()
+	local FindPlr = game:GetService("Players"):FindFirstChild(TPConfig.Text)
+	
+	if FindPlr then
+		local X = FindPlr.Character.UpperTorso.Position.X
+		local Y = FindPlr.Character.UpperTorso.Position.Y
+		local Z = FindPlr.Character.UpperTorso.Position.Z
+		wait()
+		Tws:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1.2), {CFrame = CFrame.new(X,Y,Z)}):Play()
+		
+	end
+end)
+
+ButtonTitle_5.Name = "ButtonTitle"
+ButtonTitle_5.Parent = TPtoPlr
+ButtonTitle_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_5.BackgroundTransparency = 1.000
+ButtonTitle_5.Position = UDim2.new(0.0510805547, 0, -0.127272725, 0)
+ButtonTitle_5.Size = UDim2.new(0, 200, 0, 44)
+ButtonTitle_5.Font = Enum.Font.SourceSans
+ButtonTitle_5.Text = "Teleport"
+ButtonTitle_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_5.TextSize = 26.000
+ButtonTitle_5.TextXAlignment = Enum.TextXAlignment.Left
+
+ButtonDescription_5.Name = "ButtonDescription"
+ButtonDescription_5.Parent = TPtoPlr
+ButtonDescription_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_5.BackgroundTransparency = 1.000
+ButtonDescription_5.Position = UDim2.new(0.0516208746, 0, 0.377272725, 0)
+ButtonDescription_5.Size = UDim2.new(0, 270, 0, 44)
+ButtonDescription_5.Font = Enum.Font.SourceSans
+ButtonDescription_5.Text = "Teleports To a player using the textbox above"
+ButtonDescription_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_5.TextSize = 19.000
+ButtonDescription_5.TextXAlignment = Enum.TextXAlignment.Left
+
+TPConfig.Name = "TPConfig"
+TPConfig.Parent = TPtoPlr
+TPConfig.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+TPConfig.BorderSizePixel = 0
+TPConfig.Position = UDim2.new(-0.00163713098, 0, -1.04050887, 0)
+TPConfig.Size = UDim2.new(0, 509, 0, 50)
+TPConfig.Font = Enum.Font.SourceSans
+TPConfig.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+TPConfig.PlaceholderText = "Type a Players name and press teleport to goto them"
+TPConfig.Text = ""
+TPConfig.TextColor3 = Color3.fromRGB(255, 255, 255)
+TPConfig.TextSize = 14.000
+
+SavePos.Name = "SavePos"
+SavePos.Parent = TeleportsPG
+SavePos.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+SavePos.BorderSizePixel = 0
+SavePos.Position = UDim2.new(-0.00392927323, 0, 0.126444787, 0)
+SavePos.Size = UDim2.new(0, 509, 0, 55)
+SavePos.Font = Enum.Font.SourceSans
+SavePos.Text = ""
+SavePos.TextColor3 = Color3.fromRGB(255, 255, 255)
+SavePos.TextSize = 14.000
+
+ButtonTitle_6.Name = "ButtonTitle"
+ButtonTitle_6.Parent = SavePos
+ButtonTitle_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_6.BackgroundTransparency = 1.000
+ButtonTitle_6.Position = UDim2.new(0.0510805547, 0, -0.127272725, 0)
+ButtonTitle_6.Size = UDim2.new(0, 200, 0, 44)
+ButtonTitle_6.Font = Enum.Font.SourceSans
+ButtonTitle_6.Text = "SavePos [Undone]"
+ButtonTitle_6.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_6.TextSize = 26.000
+ButtonTitle_6.TextXAlignment = Enum.TextXAlignment.Left
+
+ButtonDescription_6.Name = "ButtonDescription"
+ButtonDescription_6.Parent = SavePos
+ButtonDescription_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_6.BackgroundTransparency = 1.000
+ButtonDescription_6.Position = UDim2.new(0.0516208746, 0, 0.377272725, 0)
+ButtonDescription_6.Size = UDim2.new(0, 320, 0, 44)
+ButtonDescription_6.Font = Enum.Font.SourceSans
+ButtonDescription_6.Text = "Saves Your position"
+ButtonDescription_6.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_6.TextSize = 19.000
+ButtonDescription_6.TextXAlignment = Enum.TextXAlignment.Left
+
+GotoPos.Name = "GotoPos"
+GotoPos.Parent = TeleportsPG
+GotoPos.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+GotoPos.BorderSizePixel = 0
+GotoPos.Position = UDim2.new(0, 0, 0.186909899, 0)
+GotoPos.Size = UDim2.new(0, 509, 0, 55)
+GotoPos.Font = Enum.Font.SourceSans
+GotoPos.Text = ""
+GotoPos.TextColor3 = Color3.fromRGB(255, 255, 255)
+GotoPos.TextSize = 14.000
+
+ButtonTitle_7.Name = "ButtonTitle"
+ButtonTitle_7.Parent = GotoPos
+ButtonTitle_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_7.BackgroundTransparency = 1.000
+ButtonTitle_7.Position = UDim2.new(0.0510805547, 0, -0.127272725, 0)
+ButtonTitle_7.Size = UDim2.new(0, 200, 0, 44)
+ButtonTitle_7.Font = Enum.Font.SourceSans
+ButtonTitle_7.Text = "GotoPos [Undone]"
+ButtonTitle_7.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_7.TextSize = 26.000
+ButtonTitle_7.TextXAlignment = Enum.TextXAlignment.Left
+
+ButtonDescription_7.Name = "ButtonDescription"
+ButtonDescription_7.Parent = GotoPos
+ButtonDescription_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_7.BackgroundTransparency = 1.000
+ButtonDescription_7.Position = UDim2.new(0.0457269661, 0, 0.359090894, 0)
+ButtonDescription_7.Size = UDim2.new(0, 320, 0, 44)
+ButtonDescription_7.Font = Enum.Font.SourceSans
+ButtonDescription_7.Text = "Goes To the saved position"
+ButtonDescription_7.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_7.TextSize = 19.000
+ButtonDescription_7.TextXAlignment = Enum.TextXAlignment.Left
+
+FarmPG.Name = "FarmPG"
+FarmPG.Parent = Top
+FarmPG.Active = true
+FarmPG.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+FarmPG.BorderSizePixel = 0
+FarmPG.Position = UDim2.new(0.211971357, 0, 0.786043167, 0)
+FarmPG.Size = UDim2.new(0, 509, 0, 501)
+FarmPG.Visible = false
+
+FarmMS.Name = "FarmMS"
+FarmMS.Parent = FarmPG
+FarmMS.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+FarmMS.BorderSizePixel = 0
+FarmMS.Position = UDim2.new(-0.00196463661, 0, 0.0598802343, 0)
+FarmMS.Size = UDim2.new(0, 509, 0, 55)
+FarmMS.Font = Enum.Font.SourceSans
+FarmMS.Text = ""
+FarmMS.TextColor3 = Color3.fromRGB(255, 255, 255)
+FarmMS.TextSize = 14.000
+
+ButtonTitle_8.Name = "ButtonTitle"
+ButtonTitle_8.Parent = FarmMS
+ButtonTitle_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_8.BackgroundTransparency = 1.000
+ButtonTitle_8.Position = UDim2.new(0.0510805547, 0, -0.127272725, 0)
+ButtonTitle_8.Size = UDim2.new(0, 200, 0, 44)
+ButtonTitle_8.Font = Enum.Font.SourceSans
+ButtonTitle_8.Text = "Farm Speed"
+ButtonTitle_8.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_8.TextSize = 26.000
+ButtonTitle_8.TextXAlignment = Enum.TextXAlignment.Left
+
+ButtonDescription_8.Name = "ButtonDescription"
+ButtonDescription_8.Parent = FarmMS
+ButtonDescription_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_8.BackgroundTransparency = 1.000
+ButtonDescription_8.Position = UDim2.new(0.0535855107, 0, 0.359090894, 0)
+ButtonDescription_8.Size = UDim2.new(0, 320, 0, 44)
+ButtonDescription_8.Font = Enum.Font.SourceSans
+ButtonDescription_8.Text = "Put on 100T and it will auto train"
+ButtonDescription_8.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_8.TextSize = 19.000
+ButtonDescription_8.TextXAlignment = Enum.TextXAlignment.Left
+
+FarmJF.Name = "FarmJF"
+FarmJF.Parent = FarmPG
+FarmJF.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+FarmJF.BorderSizePixel = 0
+FarmJF.Position = UDim2.new(0, 0, 0.191616774, 0)
+FarmJF.Size = UDim2.new(0, 509, 0, 55)
+FarmJF.Font = Enum.Font.SourceSans
+FarmJF.Text = ""
+FarmJF.TextColor3 = Color3.fromRGB(255, 255, 255)
+FarmJF.TextSize = 14.000
+
+ButtonTitle_9.Name = "ButtonTitle"
+ButtonTitle_9.Parent = FarmJF
+ButtonTitle_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_9.BackgroundTransparency = 1.000
+ButtonTitle_9.Position = UDim2.new(0.0510805547, 0, -0.127272725, 0)
+ButtonTitle_9.Size = UDim2.new(0, 200, 0, 44)
+ButtonTitle_9.Font = Enum.Font.SourceSans
+ButtonTitle_9.Text = "Farm Jump"
+ButtonTitle_9.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_9.TextSize = 26.000
+ButtonTitle_9.TextXAlignment = Enum.TextXAlignment.Left
+
+ButtonDescription_9.Name = "ButtonDescription"
+ButtonDescription_9.Parent = FarmJF
+ButtonDescription_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_9.BackgroundTransparency = 1.000
+ButtonDescription_9.Position = UDim2.new(0.0516208746, 0, 0.340909064, 0)
+ButtonDescription_9.Size = UDim2.new(0, 320, 0, 44)
+ButtonDescription_9.Font = Enum.Font.SourceSans
+ButtonDescription_9.Text = "Put on 100T and it will auto train"
+ButtonDescription_9.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_9.TextSize = 19.000
+ButtonDescription_9.TextXAlignment = Enum.TextXAlignment.Left
+
+FarmBT.Name = "FarmBT"
+FarmBT.Parent = FarmPG
+FarmBT.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+FarmBT.BorderSizePixel = 0
+FarmBT.Position = UDim2.new(-0.00196463661, 0, 0.315369278, 0)
+FarmBT.Size = UDim2.new(0, 509, 0, 55)
+FarmBT.Font = Enum.Font.SourceSans
+FarmBT.Text = ""
+FarmBT.TextColor3 = Color3.fromRGB(255, 255, 255)
+FarmBT.TextSize = 14.000
+
+ButtonTitle_10.Name = "ButtonTitle"
+ButtonTitle_10.Parent = FarmBT
+ButtonTitle_10.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_10.BackgroundTransparency = 1.000
+ButtonTitle_10.Position = UDim2.new(0.0510805547, 0, -0.127272725, 0)
+ButtonTitle_10.Size = UDim2.new(0, 200, 0, 44)
+ButtonTitle_10.Font = Enum.Font.SourceSans
+ButtonTitle_10.Text = "Farm BodyToughness"
+ButtonTitle_10.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_10.TextSize = 26.000
+ButtonTitle_10.TextXAlignment = Enum.TextXAlignment.Left
+
+ButtonDescription_10.Name = "ButtonDescription"
+ButtonDescription_10.Parent = FarmBT
+ButtonDescription_10.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_10.BackgroundTransparency = 1.000
+ButtonDescription_10.Position = UDim2.new(0.0516208746, 0, 0.340909064, 0)
+ButtonDescription_10.Size = UDim2.new(0, 320, 0, 44)
+ButtonDescription_10.Font = Enum.Font.SourceSans
+ButtonDescription_10.Text = "Farms BT for you in the best suited area for you"
+ButtonDescription_10.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_10.TextSize = 19.000
+ButtonDescription_10.TextXAlignment = Enum.TextXAlignment.Left
+
+TextLabel_3.Parent = FarmPG
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.Position = UDim2.new(0.239685655, 0, 0, 0)
+TextLabel_3.Size = UDim2.new(0, 200, 0, 50)
+TextLabel_3.Font = Enum.Font.SourceSans
+TextLabel_3.Text = "Farm Page is not done"
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextSize = 30.000
+
+FarmFS.Name = "FarmFS"
+FarmFS.Parent = FarmPG
+FarmFS.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+FarmFS.BorderSizePixel = 0
+FarmFS.Position = UDim2.new(-0.00196463661, 0, 0.453093797, 0)
+FarmFS.Size = UDim2.new(0, 509, 0, 55)
+FarmFS.Font = Enum.Font.SourceSans
+FarmFS.Text = ""
+FarmFS.TextColor3 = Color3.fromRGB(255, 255, 255)
+FarmFS.TextSize = 14.000
+
+ButtonTitle_11.Name = "ButtonTitle"
+ButtonTitle_11.Parent = FarmFS
+ButtonTitle_11.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_11.BackgroundTransparency = 1.000
+ButtonTitle_11.Position = UDim2.new(0.0510805547, 0, -0.127272725, 0)
+ButtonTitle_11.Size = UDim2.new(0, 200, 0, 44)
+ButtonTitle_11.Font = Enum.Font.SourceSans
+ButtonTitle_11.Text = "Farm Fist Strength"
+ButtonTitle_11.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_11.TextSize = 26.000
+ButtonTitle_11.TextXAlignment = Enum.TextXAlignment.Left
+
+ButtonDescription_11.Name = "ButtonDescription"
+ButtonDescription_11.Parent = FarmFS
+ButtonDescription_11.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_11.BackgroundTransparency = 1.000
+ButtonDescription_11.Position = UDim2.new(0.0516208746, 0, 0.340909064, 0)
+ButtonDescription_11.Size = UDim2.new(0, 320, 0, 44)
+ButtonDescription_11.Font = Enum.Font.SourceSans
+ButtonDescription_11.Text = "Farms Fist In the best suited area for you"
+ButtonDescription_11.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_11.TextSize = 19.000
+ButtonDescription_11.TextXAlignment = Enum.TextXAlignment.Left
+
+FarmPP.Name = "FarmPP"
+FarmPP.Parent = FarmPG
+FarmPP.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+FarmPP.BorderSizePixel = 0
+FarmPP.Position = UDim2.new(-0.00196463661, 0, 0.592814445, 0)
+FarmPP.Size = UDim2.new(0, 509, 0, 55)
+FarmPP.Font = Enum.Font.SourceSans
+FarmPP.Text = ""
+FarmPP.TextColor3 = Color3.fromRGB(255, 255, 255)
+FarmPP.TextSize = 14.000
+
+ButtonTitle_12.Name = "ButtonTitle"
+ButtonTitle_12.Parent = FarmPP
+ButtonTitle_12.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_12.BackgroundTransparency = 1.000
+ButtonTitle_12.Position = UDim2.new(0.0510805547, 0, -0.127272725, 0)
+ButtonTitle_12.Size = UDim2.new(0, 200, 0, 44)
+ButtonTitle_12.Font = Enum.Font.SourceSans
+ButtonTitle_12.Text = "Farm Psychic"
+ButtonTitle_12.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_12.TextSize = 26.000
+ButtonTitle_12.TextXAlignment = Enum.TextXAlignment.Left
+
+ButtonDescription_12.Name = "ButtonDescription"
+ButtonDescription_12.Parent = FarmPP
+ButtonDescription_12.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_12.BackgroundTransparency = 1.000
+ButtonDescription_12.Position = UDim2.new(0.0516208746, 0, 0.340909064, 0)
+ButtonDescription_12.Size = UDim2.new(0, 320, 0, 44)
+ButtonDescription_12.Font = Enum.Font.SourceSans
+ButtonDescription_12.Text = "Farms Psychic Power In the best suited area for you"
+ButtonDescription_12.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_12.TextSize = 19.000
+ButtonDescription_12.TextXAlignment = Enum.TextXAlignment.Left
+
+StatCheckerPG.Name = "StatCheckerPG"
+StatCheckerPG.Parent = Top
+StatCheckerPG.Active = true
+StatCheckerPG.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+StatCheckerPG.BorderSizePixel = 0
+StatCheckerPG.Position = UDim2.new(0.211971357, 0, 0.786043167, 0)
+StatCheckerPG.Size = UDim2.new(0, 509, 0, 501)
+StatCheckerPG.Visible = false
+
+Check.Name = "Check"
+Check.Parent = StatCheckerPG
+Check.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+Check.BorderSizePixel = 0
+Check.Position = UDim2.new(0, 0, 0.00798403192, 0)
+Check.Size = UDim2.new(0, 509, 0, 111)
+Check.Font = Enum.Font.SourceSans
+Check.Text = ""
+Check.TextColor3 = Color3.fromRGB(255, 255, 255)
+Check.TextSize = 14.000
+Check.MouseButton1Click:Connect(function()
+	local PlayerStat = game:GetService("Players"):FindFirstChild(ConfigStatCheck.Text)
+	
+	if PlayerStat then
+		FSVal.Text = PlayerStat.PrivateStats.FistStrength.Value
+		BTVal.Text = PlayerStat.PrivateStats.BodyToughness.Value	
+		PPVal.Text = PlayerStat.PrivateStats.PsychicPower.Value
+	else
+		FSVal.Text = "Player Not Found"
+		BTVal.Text = "Player Not Found"	
+		PPVal.Text = "Player Not Found"		
+	end
+end)
+
+ButtonTitle_13.Name = "ButtonTitle"
+ButtonTitle_13.Parent = Check
+ButtonTitle_13.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_13.BackgroundTransparency = 1.000
+ButtonTitle_13.Position = UDim2.new(0.0137524605, 0, -0.0461916476, 0)
+ButtonTitle_13.Size = UDim2.new(0, 200, 0, 44)
+ButtonTitle_13.Font = Enum.Font.SourceSans
+ButtonTitle_13.Text = "Check"
+ButtonTitle_13.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTitle_13.TextSize = 26.000
+ButtonTitle_13.TextXAlignment = Enum.TextXAlignment.Left
+
+ButtonDescription_13.Name = "ButtonDescription"
+ButtonDescription_13.Parent = Check
+ButtonDescription_13.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_13.BackgroundTransparency = 1.000
+ButtonDescription_13.Position = UDim2.new(0.0123281442, 0, 0.296191633, 0)
+ButtonDescription_13.Size = UDim2.new(0, 320, 0, 44)
+ButtonDescription_13.Font = Enum.Font.SourceSans
+ButtonDescription_13.Text = "Put a players name into the textbox below and press check to view stats"
+ButtonDescription_13.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonDescription_13.TextSize = 19.000
+ButtonDescription_13.TextXAlignment = Enum.TextXAlignment.Left
+
+ConfigStatCheck.Name = "ConfigStatCheck"
+ConfigStatCheck.Parent = Check
+ConfigStatCheck.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+ConfigStatCheck.BorderSizePixel = 0
+ConfigStatCheck.Position = UDim2.new(-0.00163713098, 0, 0.995854735, 0)
+ConfigStatCheck.Size = UDim2.new(0, 509, 0, 50)
+ConfigStatCheck.Font = Enum.Font.SourceSans
+ConfigStatCheck.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+ConfigStatCheck.PlaceholderText = "Place a players name and press \"Check\" to view that players stats"
+ConfigStatCheck.Text = ""
+ConfigStatCheck.TextColor3 = Color3.fromRGB(255, 255, 255)
+ConfigStatCheck.TextSize = 14.000
+
+FSVal.Name = "FSVal"
+FSVal.Parent = Check
+FSVal.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+FSVal.BorderSizePixel = 0
+FSVal.Position = UDim2.new(0.168958738, 0, 1.74774778, 0)
+FSVal.Size = UDim2.new(0, 407, 0, 50)
+FSVal.Font = Enum.Font.SourceSans
+FSVal.Text = "Calculating"
+FSVal.TextColor3 = Color3.fromRGB(255, 255, 255)
+FSVal.TextSize = 14.000
+
+BTVal.Name = "BTVal"
+BTVal.Parent = Check
+BTVal.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+BTVal.BorderSizePixel = 0
+BTVal.Position = UDim2.new(0.168958738, 0, 2.36936951, 0)
+BTVal.Size = UDim2.new(0, 407, 0, 50)
+BTVal.Font = Enum.Font.SourceSans
+BTVal.Text = "Calculating"
+BTVal.TextColor3 = Color3.fromRGB(255, 255, 255)
+BTVal.TextSize = 14.000
+
+PPVal.Name = "PPVal"
+PPVal.Parent = Check
+PPVal.BackgroundColor3 = Color3.fromRGB(48, 48, 48)
+PPVal.BorderSizePixel = 0
+PPVal.Position = UDim2.new(0.168958738, 0, 3.01801825, 0)
+PPVal.Size = UDim2.new(0, 407, 0, 50)
+PPVal.Font = Enum.Font.SourceSans
+PPVal.Text = "Calculating"
+PPVal.TextColor3 = Color3.fromRGB(255, 255, 255)
+PPVal.TextSize = 14.000
+
+TextLabel_4.Parent = Check
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.BackgroundTransparency = 1.000
+TextLabel_4.Position = UDim2.new(-0.0530451834, 0, 1.83783793, 0)
+TextLabel_4.Size = UDim2.new(0, 113, 0, 30)
+TextLabel_4.Font = Enum.Font.SourceSans
+TextLabel_4.Text = "       FistStrength:"
+TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.TextSize = 14.000
+
+TextLabel_5.Parent = Check
+TextLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.BackgroundTransparency = 1.000
+TextLabel_5.Position = UDim2.new(-0.0530451834, 0, 2.43243265, 0)
+TextLabel_5.Size = UDim2.new(0, 113, 0, 30)
+TextLabel_5.Font = Enum.Font.SourceSans
+TextLabel_5.Text = "         Toughmess:"
+TextLabel_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.TextSize = 14.000
+
+TextLabel_6.Parent = Check
+TextLabel_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_6.BackgroundTransparency = 1.000
+TextLabel_6.Position = UDim2.new(-0.0530451834, 0, 3.10810828, 0)
+TextLabel_6.Size = UDim2.new(0, 113, 0, 30)
+TextLabel_6.Font = Enum.Font.SourceSans
+TextLabel_6.Text = "             Psychic:"
+TextLabel_6.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_6.TextSize = 14.000
+
+
+
+Plr.Chatted:Connect(function(msg)
+	if msg == "/e" then
+		ScreenGui:Destroy()
+		Top:Destroy()
+	end
+end)
+
+Uip.InputBegan:Connect(function(input)
+	if input.KeyCode == Enum.KeyCode.RightAlt then
+		if Top.Visible == true then
+			Top.Visible = false
+		else
+			Top.Visible = true
+		end
+	end
+end)
