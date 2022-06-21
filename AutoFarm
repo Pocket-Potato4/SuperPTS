@@ -1,0 +1,100 @@
+
+
+local FS = game.Players.LocalPlayer.PrivateStats.FistStrength.Value
+local BT = game.Players.LocalPlayer.PrivateStats.BodyToughness.Value
+local PP = game.Players.LocalPlayer.PrivateStats.PsychicPower.Value
+local loop = true
+
+local function BodyT()
+	if getgenv().FarmBT == true then
+		if BT >= 40.e12 then
+			game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1), {CFrame = CFrame.new(-278, 281, 1008)}):Play()
+			wait(1)
+			game.Players.LocalPlayer.Character.UpperTorso.Waist:Remove()
+		elseif BT >= 400.e09 then
+			game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1), {CFrame = CFrame.new(-277, 281, 994)}):Play()
+			wait(1)	
+			game.Players.LocalPlayer.Character.UpperTorso.Waist:Remove()
+		elseif BT >= 4.e09 then
+			game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1), {CFrame = CFrame.new(-256, 286, 979)}):Play()	
+			wait(1)
+			game.Players.LocalPlayer.Character.UpperTorso.Waist:Remove()
+		elseif BT >= 50.e06 then
+			game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1), {CFrame = CFrame.new(-2045, 714, -1892)}):Play()	
+			wait(1)
+			game.Players.LocalPlayer.Character.UpperTorso.Waist:Remove()
+		elseif BT >= 5.e06 then	
+			game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1), {CFrame = CFrame.new(-2299, 977, 1072)}):Play()	
+			wait(1)
+			game.Players.LocalPlayer.Character.UpperTorso.Waist:Remove()
+		elseif BT >= 500.e03 then	
+			game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1), {CFrame = CFrame.new(1636, 279, 2245)}):Play()	
+			wait(1)
+			game.Players.LocalPlayer.Character.UpperTorso.Waist:Remove()
+		elseif BT >= 50.e03 then
+			game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1), {CFrame = CFrame.new(355, 268, -493)}):Play()	
+			wait(1)
+			game.Players.LocalPlayer.Character.UpperTorso.Waist:Remove()
+		elseif BT >= 500 then	
+			game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1), {CFrame = CFrame.new(368, 256, -445)}):Play()	
+			wait(1)
+			game.Players.LocalPlayer.Character.UpperTorso.Waist:Remove()
+
+		end
+	end	
+end
+
+local function PsychicGoto()
+
+		if PP >= 1.e15 then
+			game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1), {CFrame = CFrame.new(-2538, 5411, -506)}):Play()	
+		elseif PP >= 1.e12 then
+			game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1), {CFrame = CFrame.new(-2575, 5513, -496)}):Play()
+		elseif PP >= 1.e09 then
+			game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1), {CFrame = CFrame.new(-2562, 5500, -446)}):Play()
+		elseif PP >= 1.e06 then		
+			game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1), {CFrame = CFrame.new(-2532, 5486, -531)}):Play()	
+
+		end
+	end
+
+local function mobility()
+	if getgenv().FarmMobility == true then
+		local args = {[1] = {[1] = "Weight",[2] = "Weight4"}}
+
+		game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+		repeat
+			wait(1)
+			game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"+MS5"})
+			game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"+JF5"})
+		until loop == false
+	end
+end
+
+local function farmpsy()
+	repeat
+	wait()
+	if PP >= 1.e15 then
+		game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"+PP6"})
+	elseif PP >= 1.e12 then	
+		game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"+PP5"})
+	elseif PP >= 1.e09 then	
+		game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"+PP4"})
+	elseif PP >= 1.e06 then		
+		game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"+PP3"})
+	elseif PP >= 10.e03	then
+		game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"+PP2"})
+	else	
+		game:GetService("ReplicatedStorage").RemoteEvent:FireServer({"+PP1"})
+	end	
+	until loop == false
+end
+
+
+
+BodyT()
+wait(2)
+PsychicGoto()
+mobility()
+farmpsy()
+respawn()
