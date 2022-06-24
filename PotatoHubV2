@@ -248,7 +248,7 @@ end
 
 
 
-if Key == "dn823gr832rnb89din32eno2ebie2b3ue32" then
+if Key == "PotatoHubV2" then
 	game.StarterGui:SetCore("SendNotification",  {
 		Title = "Potato Hub V2";
 		Text = "Key Correct :D";
