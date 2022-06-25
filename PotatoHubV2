@@ -127,16 +127,16 @@ local function respawn()
 end
 
 local function AutoRespawn()
-	
-		repeat
-			wait()
-		
-			local APos0 = MyPlayer.Character.UpperTorso.Position.X
-			local APos1 = MyPlayer.Character.UpperTorso.Position.Y
-			local APos2 = MyPlayer.Character.UpperTorso.Position.Z
-	
-	
-			if MyPlayer.Character.Humanoid.Health == 0 then
+
+	repeat
+		wait()
+
+		local APos0 = MyPlayer.Character.UpperTorso.Position.X
+		local APos1 = MyPlayer.Character.UpperTorso.Position.Y
+		local APos2 = MyPlayer.Character.UpperTorso.Position.Z
+
+
+		if MyPlayer.Character.Humanoid.Health == 0 then
 			Rep.RemoteEvent:FireServer({"Respawn"})
 			wait(1.8)
 			TWS:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1.2), {CFrame = CFrame.new(APos0,APos1,APos2)}):Play()
@@ -144,14 +144,109 @@ local function AutoRespawn()
 	until AutoRespawnToggle.BackgroundColor3 == Color3.fromRGB(42, 42, 42)	
 end
 
+if Key == "PotatoHubV2" then
+	game.StarterGui:SetCore("SendNotification",  {
+		Title = "Potato Hub V2";
+		Text = "Key Correct :D";
+		Duration = "7";
+	})
+elseif MyPlayer.UserId == 2385124288 then
+	game.StarterGui:SetCore("SendNotification",  {
+		Title = "Potato Hub V2";
+		Text = "You're Whitelisted "..MyPlayer.Name;
+		Duration = "7";
+	})
+	
+elseif MyPlayer.UserId == 1554119237 then
+	game.StarterGui:SetCore("SendNotification",  {
+		Title = "Potato Hub V2";
+		Text = "You're Whitelisted "..MyPlayer.Name;
+		Duration = "7";
+	})	
+else
+	MyPlayer:Kick("Wrong Key, join discord.gg/DdXnTGuq8b to get the correct Key")	
+end
 
 local function FixStats()
 	repeat
 		wait()
-		FistVal.Text = MyPlayer.PrivateStats.FistStrength.Value
-		BTVal.Text = MyPlayer.PrivateStats.BodyToughness.Value
-		PsychicVal.Text = MyPlayer.PrivateStats.PsychicPower.Value
-		
+		local PP = MyPlayer.PrivateStats.PsychicPower.Value
+		local BT = MyPlayer.PrivateStats.BodyToughness.Value
+		local FS = MyPlayer.PrivateStats.FistStrength.Value
+
+		if PP >= 1.e15 then
+			local NewPP = PP / 1.e15
+			local FixPP = math.round(NewPP)
+			PsychicVal.Text = FixPP.."Qa"
+		elseif PP >= 1.e12 then
+			local NewPP = PP / 1.e12
+			local FixPP = math.round(NewPP)
+			PsychicVal.Text = FixPP.."T"
+		elseif PP >= 1.e09 then
+			local NewPP = PP / 1.e09
+			local FixPP = math.round(NewPP)
+			PsychicVal.Text = FixPP.."B"
+		elseif PP >= 1.e06 then
+			local NewPP = PP / 1.e06
+			local FixPP = math.round(NewPP)
+			PsychicVal.Text = FixPP.."M"
+		elseif PP >= 1.e03 then
+			local NewPP = PP / 1.e03
+			local FixPP = math.round(NewPP)
+			PsychicVal.Text = FixPP.."K"
+		else
+			PsychicVal.Text = PP
+
+		end
+
+		if FS >= 1.e15 then
+			local NewFS = FS / 1.e15
+			local FixFS = math.round(NewFS)
+			FistVal.Text = FixFS.."Qa"
+		elseif FS >= 1.e12 then
+			local NewFS = FS / 1.e12
+			local FixFS = math.round(NewFS)
+			FistVal.Text = FixFS.."T"
+		elseif FS >= 1.e09 then
+			local NewFS = FS / 1.e09
+			local FixFS = math.round(NewFS)
+			FistVal.Text = FixFS.."B"
+		elseif FS >= 1.e06 then
+			local NewFS = FS / 1.e06
+			local FixFS = math.round(NewFS)
+			FistVal.Text = FixFS.."M"
+		elseif FS >= 1.e03 then
+			local NewFS = FS / 1.e03
+			local FixFS = math.round(NewFS)
+			FistVal.Text = FixFS.."K"
+		else
+			FistVal.Text = FS	
+		end	
+
+		if BT >= 1.e15 then
+			local NewBT = BT / 1.e15
+			local FixBT = math.round(NewBT)
+			BTVal.Text = FixBT.."Qa"
+		elseif FS >= 1.e12 then
+			local NewBT = BT / 1.e12
+			local FixBT = math.round(NewBT)
+			BTVal.Text = FixBT.."T"
+		elseif FS >= 1.e09 then
+			local NewBT = BT / 1.e09
+			local FixBT = math.round(NewBT)
+			BTVal.Text = FixBT.."B"
+		elseif FS >= 1.e06 then
+			local NewBT = BT / 1.e06
+			local FixBT = math.round(NewBT)
+			BTVal.Text = FixBT.."M"
+		elseif FS >= 1.e03 then
+			local NewBT = BT / 1.e03
+			local FixBT = math.round(NewBT)
+			BTVal.Text = FixBT.."K"
+		else
+			BTVal.Text = FS	
+		end	
+
 	until loop == false
 end
 
@@ -164,7 +259,7 @@ local function EnergyShield()
 		local EPos1 = MyPlayer.Character.UpperTorso.Position.Y
 		local EPos2 = MyPlayer.Character.UpperTorso.Position.Z
 
-		
+
 
 		local fire = {
 			[1] = {
@@ -175,31 +270,31 @@ local function EnergyShield()
 
 		Rep.RemoteEvent:FireServer(unpack(fire))
 
-		
+
 	until EnergyShieldToggle.BackgroundColor3 == Color3.fromRGB(42, 42, 42)
 end
 
 local function SpamKillingIntent()
 	repeat
-	
-	wait()
-	
-		
-	
-	local args = {
-		[1] = {
-			[1] = "Skill_KillingIntent_Start"
-		}
-	}
 
-	game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+		wait()
+
+
+
+		local args = {
+			[1] = {
+				[1] = "Skill_KillingIntent_Start"
+			}
+		}
+
+		game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
 	until SpamIntent.BackgroundColor3 == Color3.fromRGB(42,42,42)
 end
 
 local function SoulReap()
 	local Plr = game.Players:FindFirstChild(ReapConfig.Text)
 	if Plr then
-		
+
 
 		local reap = {
 			[1] = {
@@ -215,48 +310,39 @@ end
 
 local function StalkON()
 	local Plr = game.Players:FindFirstChild(StalkConfig.Text)
-	
+
 	if Plr then
 		repeat
 			wait()
 			local PPos0 = Plr.Character.UpperTorso.Position.X
 			local PPos1 = Plr.Character.UpperTorso.Position.Y + 3
 			local PPos2 = Plr.Character.UpperTorso.Position.Z
-			
+
 			TWS:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(.7), {CFrame = CFrame.new(PPos0,PPos1,PPos2)}):Play()
-			
+
 		until StalkToggle.BackgroundColor3 == Color3.fromRGB(42, 42, 42)
 	end
 end
 
 local function statchecker()
-	
-		wait()
-		local Check = game.Players:FindFirstChild(CheckConfig.Text)
-		
-		if Check then
-			CheckFSVal.Text = Check.PrivateStats.FistStrength.Value
-			CheckBTVal.Text = Check.PrivateStats.BodyToughness.Value 
-			CheckPPVal.Text = Check.PrivateStats.PsychicPower.Value	
-		else	
-			CheckFSVal.Text = "Player Not Found"
-			CheckBTVal.Text = "Player Not Found"
-			CheckPPVal.Text = "Player Not Found"
+
+	wait()
+	local Check = game.Players:FindFirstChild(CheckConfig.Text)
+
+	if Check then
+		CheckFSVal.Text = Check.PrivateStats.FistStrength.Value
+		CheckBTVal.Text = Check.PrivateStats.BodyToughness.Value 
+		CheckPPVal.Text = Check.PrivateStats.PsychicPower.Value	
+	else	
+		CheckFSVal.Text = "Player Not Found"
+		CheckBTVal.Text = "Player Not Found"
+		CheckPPVal.Text = "Player Not Found"
 	end
 end
 
 
 
 
-if Key == "PotatoHubV2" then
-	game.StarterGui:SetCore("SendNotification",  {
-		Title = "Potato Hub V2";
-		Text = "Key Correct :D";
-		Duration = "7";
-	})
-else
-	MyPlayer:Kick("Wrong Key, join discord.gg/DdXnTGuq8b to get the correct Key")	
-end
 
 
 --Properties:
@@ -292,7 +378,7 @@ GoMisc.Text = "Misc"
 GoMisc.TextColor3 = Color3.fromRGB(255, 255, 255)
 GoMisc.TextSize = 14.000
 GoMisc.MouseButton1Click:Connect(function()
-	
+
 	GoPlrPage.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
 	GoTps.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
 	GoMisc.BackgroundColor3 = Color3.fromRGB(129, 0, 2)
@@ -302,7 +388,7 @@ GoMisc.MouseButton1Click:Connect(function()
 	MiscPage.Visible = true
 	StatCheckPage.Visible = false
 	TeleportsPage.Visible = false
-	
+
 end)
 
 UICorner_2.Parent = GoMisc
@@ -328,17 +414,17 @@ GoPlrPage.Text = "Local Player"
 GoPlrPage.TextColor3 = Color3.fromRGB(255, 255, 255)
 GoPlrPage.TextSize = 14.000
 GoPlrPage.MouseButton1Click:Connect(function()
-	
+
 	GoPlrPage.BackgroundColor3 = Color3.fromRGB(129, 0, 2)
 	GoTps.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
 	GoMisc.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
 	GoStatCheck.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
-	
+
 	PlayerPage.Visible = true
 	MiscPage.Visible = false
 	StatCheckPage.Visible = false
 	TeleportsPage.Visible = false
-	
+
 end)
 
 UICorner_3.Parent = GoPlrPage
@@ -363,7 +449,7 @@ GoTps.Text = "Teleports"
 GoTps.TextColor3 = Color3.fromRGB(255, 255, 255)
 GoTps.TextSize = 14.000
 GoTps.MouseButton1Click:Connect(function()
-	
+
 	GoPlrPage.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
 	GoTps.BackgroundColor3 = Color3.fromRGB(129, 0, 2)
 	GoMisc.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
@@ -373,7 +459,7 @@ GoTps.MouseButton1Click:Connect(function()
 	MiscPage.Visible = false
 	StatCheckPage.Visible = false
 	TeleportsPage.Visible = true
-	
+
 end)
 
 UICorner_4.Parent = GoTps
@@ -399,7 +485,7 @@ GoStatCheck.Text = "Stat Checker"
 GoStatCheck.TextColor3 = Color3.fromRGB(255, 255, 255)
 GoStatCheck.TextSize = 14.000
 GoStatCheck.MouseButton1Click:Connect(function()
-	
+
 	GoPlrPage.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
 	GoTps.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
 	GoMisc.BackgroundColor3 = Color3.fromRGB(31, 31, 31)
@@ -409,7 +495,7 @@ GoStatCheck.MouseButton1Click:Connect(function()
 	MiscPage.Visible = false
 	StatCheckPage.Visible = true
 	TeleportsPage.Visible = false
-	
+
 end)
 
 UICorner_5.Parent = GoStatCheck
@@ -583,7 +669,7 @@ AutoRespawnToggle.TextColor3 = Color3.fromRGB(0, 0, 0)
 AutoRespawnToggle.TextSize = 14.000
 AutoRespawnToggle.MouseButton1Click:Connect(function()
 	if AutoRespawnToggle.BackgroundColor3 == Color3.fromRGB(42, 42, 42) then
-		
+
 		AutoRespawnToggle.BackgroundColor3 = Color3.fromRGB(129, 0, 2)
 		AutoRespawn()
 	else
@@ -780,12 +866,12 @@ SpamIntent.Text = ""
 SpamIntent.TextColor3 = Color3.fromRGB(0, 0, 0)
 SpamIntent.TextSize = 14.000
 SpamIntent.MouseButton1Click:Connect(function()
-if SpamIntent.BackgroundColor3 == Color3.fromRGB(42, 42, 42) then
+	if SpamIntent.BackgroundColor3 == Color3.fromRGB(42, 42, 42) then
 
-	SpamIntent.BackgroundColor3 = Color3.fromRGB(129, 0, 2)
-	SpamKillingIntent()
-else
-	SpamIntent.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+		SpamIntent.BackgroundColor3 = Color3.fromRGB(129, 0, 2)
+		SpamKillingIntent()
+	else
+		SpamIntent.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
 	end
 end)
 
@@ -978,10 +1064,10 @@ StalkToggle.TextSize = 14.000
 StalkToggle.MouseButton1Click:Connect(function()
 	if StalkToggle.BackgroundColor3 == Color3.fromRGB(42, 42, 42) then
 		StalkToggle.BackgroundColor3 = Color3.fromRGB(129, 0, 2)
-		
-			
-			StalkON()
-		
+
+
+		StalkON()
+
 	else
 		StalkToggle.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
 	end
@@ -1060,12 +1146,12 @@ PlrTP.TextColor3 = Color3.fromRGB(0, 0, 0)
 PlrTP.TextSize = 14.000
 PlrTP.MouseButton1Click:Connect(function()
 	local Plr = game.Players:FindFirstChild(PlrTPConfig.Text)
-	
+
 	if Plr then
 		local PlrPos1 = Plr.Character.UpperTorso.Position.X
 		local PlrPos2 = Plr.Character.UpperTorso.Position.Y
 		local PlrPos3 = Plr.Character.UpperTorso.Position.Z
-		
+
 		TWS:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1.2), {CFrame = CFrame.new(PlrPos1,PlrPos2,PlrPos3)}):Play()
 	end
 end)
@@ -1417,7 +1503,7 @@ TITLE.TextSize = 14.000
 TITLE.TextWrapped = true
 
 MyPlayer.Chatted:Connect(function(msg)
-	if msg == "/remove" then
+	if msg == "/r" then
 		PotatoHubV2:Destroy()
 		top:Destroy()
 	end
