@@ -1,1 +1,22 @@
-
+if Key == "Potato" then
+	game.StarterGui:SetCore("SendNotification",  {
+		Title = "Potato Hub V2";
+		Text = "Key Correct :D";
+		Duration = "7";
+	})
+elseif MyPlayer.UserId == 2385124288 then
+	game.StarterGui:SetCore("SendNotification",  {
+		Title = "Potato Hub V2";
+		Text = "You're Whitelisted "..MyPlayer.Name;
+		Duration = "7";
+	})
+	
+elseif MyPlayer.UserId == 1554119237 then
+	game.StarterGui:SetCore("SendNotification",  {
+		Title = "Potato Hub V2";
+		Text = "You're Whitelisted "..MyPlayer.Name;
+		Duration = "7";
+	})	
+else
+	MyPlayer:Kick("Wrong Key, join discord.gg/DdXnTGuq8b to get the correct Key")	
+end
