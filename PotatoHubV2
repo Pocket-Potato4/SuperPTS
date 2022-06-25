@@ -1,3 +1,4 @@
+local MyPlayer = game:GetService("Players").LocalPlayer
 if Key == "Potato" then
 	game.StarterGui:SetCore("SendNotification",  {
 		Title = "Potato Hub V2";
