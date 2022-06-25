@@ -144,7 +144,7 @@ local function AutoRespawn()
 	until AutoRespawnToggle.BackgroundColor3 == Color3.fromRGB(42, 42, 42)	
 end
 
-if Key == "PotatoHubV2" then
+if Key == "Potato" then
 	game.StarterGui:SetCore("SendNotification",  {
 		Title = "Potato Hub V2";
 		Text = "Key Correct :D";
