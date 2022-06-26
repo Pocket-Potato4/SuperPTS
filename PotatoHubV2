@@ -1,5 +1,5 @@
 local MyPlayer = game:GetService("Players").LocalPlayer
-if Key == "Potato" then
+if Key == "1265dwada65da12d3ad106ad1a5w" then
 	game.StarterGui:SetCore("SendNotification",  {
 		Title = "Potato Hub V2";
 		Text = "Key Correct :D";
