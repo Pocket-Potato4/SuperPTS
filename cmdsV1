@@ -1,0 +1,99 @@
+game.StarterGui:SetCore("SendNotification",  {
+			Title = "Potato's Commands";
+			Text = "type [prefix]cmds and press f9 to view commands";
+			Duration = "7";
+		})
+
+RespawnBind = "-"
+
+local Player = game:GetService("Players").LocalPlayer
+local Tws = game:GetService("TweenService")
+local Rep = game:GetService("ReplicatedStorage")
+
+local function respawn()
+	local pos0 = Player.Character.UpperTorso.Position.X
+	local pos1 = Player.Character.UpperTorso.Position.Y
+	local pos2 = Player.Character.UpperTorso.Position.Z
+	Rep.RemoteEvent:FireServer({"Respawn"})
+	wait(1.7)
+	Tws:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1.2), {CFrame = CFrame.new(pos0,pos1,pos2)}):Play()
+end
+
+Player.Chatted:Connect(function(msg)
+	if msg == Prefix.."cmds" then
+		print("Here are the commands,\ncrespawn ___ --Bind|respawn\nsplit\nstats [player]\ngoto\nreap [player]")
+	end
+end)
+
+Player.Chatted:Connect(function(msg)
+	local split = msg:split(" ")
+	if Prefix.."crespawn" == split[1] then
+		local NRB = split[2]
+		RespawnBind = split[2]
+	end
+end)
+
+Player.Chatted:Connect(function(msg)
+	if msg == Prefix.."binds" then
+		print("here are your keybinds".."\nPrefix: "..Prefix.."\nRespawn Bind: "..RespawnBind)
+	end
+end)
+
+Player.Chatted:Connect(function(msg)
+	if msg == Prefix.."disable" then
+		Prefix = "dqond qoin diqn dioqnwdobquiwdb iuqldqndvbqd"
+		RespawnBind = "dqond qoin diqn dioqnwdobquiwdb iuqldqndvbqd"
+	end
+end)
+
+Player:GetMouse().KeyDown:Connect(function(bind)
+	if bind == RespawnBind then
+		respawn()
+	end
+end)
+
+Player.Chatted:Connect(function(msg)
+	if msg == Prefix.."respawn" then
+		respawn()
+	end
+end)
+
+Player.Chatted:Connect(function(msg)
+	local Split = msg:split(" ")
+	if Prefix.."stats" == Split[1] then
+		local player = Split[2]
+		local Fplayer = game.Players:FindFirstChild(player)
+
+		if Fplayer then
+			print("\n\n\nhere are "..Fplayer.Name.." stats".."\nFist: "..Fplayer.PrivateStats.FistStrength.Value.."\nBT: "..Fplayer.PrivateStats.BodyToughness.Value.."\nPsychic: "..Fplayer.PrivateStats.PsychicPower.Value)
+		end 
+	end
+end) 
+
+Player.Chatted:Connect(function(msg)
+	if msg == Prefix.."split" then
+		Player.Character.UpperTorso.Waist:Remove()
+
+	end 
+end)
+
+Player.Chatted:Connect(function(msg)
+	local split = msg:split(" ")
+	if Prefix.."reap" == split[1] then
+		local plr = split[2]
+		local Fplr = game.Players:FindFirstChild(plr)
+
+		if Fplr then
+
+
+			local args = {
+				[1] = {
+					[1] = "Skill_SoulReap",
+					[2] = Fplr
+				}
+			}
+
+			game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+		end  
+	end
+end)
