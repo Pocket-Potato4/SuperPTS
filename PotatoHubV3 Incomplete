@@ -1,5 +1,6 @@
 --Potato Hub v3
 
+local UIS = game:GetService("UserInputService")
 local Player = game:GetService("Players").LocalPlayer
 local Rep = game:GetService("ReplicatedStorage")
 local Tws = game:GetService("TweenService")
@@ -623,3 +624,12 @@ Player.Chatted:Connect(function(msg)
 	end
 end)
 
+UIS.InputBegan:Connect(function(input)
+	if input.KeyCode == Enum.KeyCode.RightAlt then
+		if Top.Visible == true then
+			Top.Visible = false
+		else
+			Top.Visible = true
+		end
+	end
+end)
