@@ -1,0 +1,625 @@
+--Potato Hub v3
+
+local Player = game:GetService("Players").LocalPlayer
+local Rep = game:GetService("ReplicatedStorage")
+local Tws = game:GetService("TweenService")
+
+local ScreenGui = Instance.new("ScreenGui")
+local Top = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local SideBar = Instance.new("Frame")
+local GotoPlrPg = Instance.new("TextButton")
+local person = Instance.new("ImageButton")
+local GotoMiscPg = Instance.new("TextButton")
+local build = Instance.new("ImageButton")
+local Backround = Instance.new("ScrollingFrame")
+local Divider = Instance.new("Frame")
+local PlayerPg = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local Respawn = Instance.new("TextButton")
+local Title_2 = Instance.new("TextLabel")
+local AutoRespawnToggle = Instance.new("TextButton")
+
+local Title_3 = Instance.new("TextLabel")
+local Split = Instance.new("TextButton")
+local Title_4 = Instance.new("TextLabel")
+local AntiKick = Instance.new("TextButton")
+local MiscPg = Instance.new("Frame")
+local Title_5 = Instance.new("TextLabel")
+local FireballSpam = Instance.new("TextButton")
+local Title_6 = Instance.new("TextLabel")
+local SpamIntent = Instance.new("TextButton")
+local Title_7 = Instance.new("TextLabel")
+local FollowToggle = Instance.new("TextButton")
+local Title_8 = Instance.new("TextLabel")
+local FollowToggle_2 = Instance.new("TextButton")
+local TextBox_2 = Instance.new("TextBox")
+local BackroundFrame = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local FistVal = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+local BodyVal = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
+local PsychicVal = Instance.new("TextLabel")
+local TextButton = Instance.new("TextButton")
+local list = Instance.new("ImageButton")
+
+local function respawn()
+	local pos0 = Player.Character.UpperTorso.Position.X
+	local pos1 = Player.Character.UpperTorso.Position.Y 
+	local pos2 = Player.Character.UpperTorso.Position.Z
+	Rep.RemoteEvent:FireServer({"Respawn"})
+	wait(1.7)
+	Tws:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(1.2), {CFrame = CFrame.new(pos0,pos1,pos2)}):Play()
+end
+
+local function ARespawn()	
+	respawn()
+end
+
+local function SpamKillingIntent()
+	repeat
+
+		wait()
+
+
+
+		local args = {
+			[1] = {
+				[1] = "Skill_KillingIntent_Start"
+			}
+		}
+
+		Rep.RemoteEvent:FireServer(unpack(args))
+	until SpamIntent.BackgroundColor3 == Color3.fromRGB(39,39,39)
+end
+
+
+local function EnergyShield()
+
+	repeat
+		wait()
+
+		local EPos0 = Player.Character.UpperTorso.Position.X
+		local EPos1 = Player.Character.UpperTorso.Position.Y
+		local EPos2 = Player.Character.UpperTorso.Position.Z
+
+
+
+		local fire = {
+			[1] = {
+				[1] = "Skill_SpherePunch",
+				[2] = Vector3.new(EPos0,0,EPos2)
+			}
+		}
+
+		Rep.RemoteEvent:FireServer(unpack(fire))
+
+
+	until FireballSpam.BackgroundColor3 == Color3.fromRGB(39,39,39)
+end
+
+
+
+local function statchecker()
+	repeat
+		wait()
+	local FindPlr = game.Players:FindFirstChild(TextBox_2.Text)
+	
+	if FindPlr then
+		FistVal.Text = FindPlr.PrivateStats.FistStrength.Value
+		PsychicVal.Text = FindPlr.PrivateStats.PsychicPower.Value
+		BodyVal.Text = FindPlr.PrivateStats.BodyToughness.Value
+		
+		end
+	until TextBox_2.Text == ""
+	if TextBox_2.Text == "" then
+		FistVal.Text = "Not Found"
+		PsychicVal.Text = "Not Found"
+		BodyVal.Text = "Not Found"
+	end
+	
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Top.Name = "Top"
+Top.Parent = ScreenGui
+Top.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Top.Position = UDim2.new(0.236794174, 0, 0.130966946, 0)
+Top.Size = UDim2.new(0, 941, 0, 41)
+Top.Active = true
+Top.Draggable = true
+
+UICorner.Parent = Top
+
+SideBar.Name = "SideBar"
+SideBar.Parent = Top
+SideBar.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+SideBar.BorderSizePixel = 0
+SideBar.Position = UDim2.new(0, 0, 0.707317054, 0)
+SideBar.Size = UDim2.new(0, 194, 0, 570)
+
+GotoPlrPg.Name = "GotoPlrPg"
+GotoPlrPg.Parent = SideBar
+GotoPlrPg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GotoPlrPg.Position = UDim2.new(0.242268026, 0, 0.0912280679, 0)
+GotoPlrPg.Size = UDim2.new(0, 125, 0, 25)
+GotoPlrPg.Font = Enum.Font.SourceSans
+GotoPlrPg.Text = "Local Player"
+GotoPlrPg.TextColor3 = Color3.fromRGB(0, 0, 0)
+GotoPlrPg.TextSize = 14.000
+GotoPlrPg.MouseButton1Click:Connect(function()
+	MiscPg:TweenPosition(UDim2.new(0.00666666683, 0, 0.970175505, 0),"Out","Quad",1,false)
+	wait(1)
+	PlayerPg:TweenPosition(UDim2.new(-4.65661287e-10, 0, 0, 0),"Out","Quad",1,false)
+end)
+
+person.Name = "person"
+person.Parent = GotoPlrPg
+person.BackgroundTransparency = 1.000
+person.Position = UDim2.new(-0.251999974, 0, -0.0199999809, 0)
+person.Size = UDim2.new(0, 25, 0, 25)
+person.ZIndex = 2
+person.Image = "rbxassetid://3926307971"
+person.ImageRectOffset = Vector2.new(884, 4)
+person.ImageRectSize = Vector2.new(36, 36)
+
+GotoMiscPg.Name = "GotoMiscPg"
+GotoMiscPg.Parent = SideBar
+GotoMiscPg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+GotoMiscPg.Position = UDim2.new(0.242268026, 0, 0.19298245, 0)
+GotoMiscPg.Size = UDim2.new(0, 125, 0, 25)
+GotoMiscPg.Font = Enum.Font.SourceSans
+GotoMiscPg.Text = "Misc"
+GotoMiscPg.TextColor3 = Color3.fromRGB(0, 0, 0)
+GotoMiscPg.TextSize = 14.000
+GotoMiscPg.MouseButton1Click:Connect(function()
+	PlayerPg:TweenPosition(UDim2.new(0.00666666683, 0, 0.970175505, 0),"Out","Quad",1,false)
+	wait(1)
+
+	MiscPg:TweenPosition(UDim2.new(-4.65661287e-10, 0, 0, 0),"Out","Quad",1,false)
+end)
+
+build.Name = "build"
+build.Parent = GotoMiscPg
+build.BackgroundTransparency = 1.000
+build.LayoutOrder = 4
+build.Position = UDim2.new(-0.251999974, 0, -0.25999999, 0)
+build.Size = UDim2.new(0, 25, 0, 25)
+build.ZIndex = 2
+build.Image = "rbxassetid://3926307971"
+build.ImageRectOffset = Vector2.new(964, 4)
+build.ImageRectSize = Vector2.new(36, 36)
+
+Backround.Name = "Backround"
+Backround.Parent = Top
+Backround.Active = true
+Backround.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Backround.BorderSizePixel = 0
+Backround.Position = UDim2.new(0.202261105, 0, 0.707317233, 0)
+Backround.Selectable = false
+Backround.Size = UDim2.new(0, 750, 0, 570)
+
+Divider.Name = "Divider"
+Divider.Parent = Backround
+Divider.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Divider.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Divider.Position = UDim2.new(0.470666587, 0, 0.0210526325, 0)
+Divider.Size = UDim2.new(0, 0, 0, 541)
+
+PlayerPg.Name = "PlayerPg"
+PlayerPg.Parent = Backround
+PlayerPg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlayerPg.BackgroundTransparency = 1
+PlayerPg.Position = UDim2.new(-4.65661287e-10, 0, 0, 0)
+PlayerPg.Selectable = true
+PlayerPg.Size = UDim2.new(0, 749, 0, 570)
+
+Title.Name = "Title"
+Title.Parent = PlayerPg
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.Position = UDim2.new(-0.00133511424, 0, 0.0754385963, 0)
+Title.Size = UDim2.new(0, 155, 0, 27)
+Title.Font = Enum.Font.RobotoCondensed
+Title.Text = "Respawn"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 19.000
+
+Respawn.Name = "Respawn"
+Respawn.Parent = Title
+Respawn.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+Respawn.BorderSizePixel = 0
+Respawn.Position = UDim2.new(0.889774799, 0, 0, 0)
+Respawn.Size = UDim2.new(0, 46, 0, 27)
+Respawn.Font = Enum.Font.SourceSans
+Respawn.Text = ""
+Respawn.TextColor3 = Color3.fromRGB(0, 0, 0)
+Respawn.TextSize = 14.000
+Respawn.MouseButton1Click:Connect(respawn)
+
+Title_2.Name = "Title"
+Title_2.Parent = PlayerPg
+Title_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title_2.BackgroundTransparency = 1.000
+Title_2.Position = UDim2.new(-0.00133511354, 0, 0.161403507, 0)
+Title_2.Size = UDim2.new(0, 166, 0, 27)
+Title_2.Font = Enum.Font.RobotoCondensed
+Title_2.Text = "Auto Respawn"
+Title_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title_2.TextSize = 19.000
+
+AutoRespawnToggle.Name = "AutoRespawnToggle"
+AutoRespawnToggle.Parent = Title_2
+AutoRespawnToggle.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+AutoRespawnToggle.BorderSizePixel = 0
+AutoRespawnToggle.Position = UDim2.new(0.82996136, 0, 0, 0)
+AutoRespawnToggle.Size = UDim2.new(0, 46, 0, 27)
+AutoRespawnToggle.Font = Enum.Font.SourceSans
+AutoRespawnToggle.Text = ""
+AutoRespawnToggle.TextColor3 = Color3.fromRGB(0, 0, 0)
+AutoRespawnToggle.TextSize = 14.000
+AutoRespawnToggle.MouseButton1Click:Connect(function()
+	if AutoRespawnToggle.BackgroundColor3 == Color3.fromRGB(39, 39, 39) then
+		AutoRespawnToggle.BackgroundColor3 = Color3.fromRGB(255,255,255)
+		repeat
+			wait(5)
+			ARespawn()
+		until AutoRespawnToggle.BackgroundColor3 == Color3.fromRGB(39, 39, 39)
+	else
+		AutoRespawnToggle.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+	end
+end)
+
+
+
+Title_3.Name = "Title"
+Title_3.Parent = PlayerPg
+Title_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title_3.BackgroundTransparency = 1.000
+Title_3.Position = UDim2.new(0.00801067799, 0, 0.249122813, 0)
+Title_3.Size = UDim2.new(0, 151, 0, 27)
+Title_3.Font = Enum.Font.RobotoCondensed
+Title_3.Text = "Split"
+Title_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title_3.TextSize = 19.000
+
+Split.Name = "Split"
+Split.Parent = Title_3
+Split.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+Split.BorderSizePixel = 0
+Split.Position = UDim2.new(0.863113821, 0, 0, 0)
+Split.Size = UDim2.new(0, 46, 0, 27)
+Split.Font = Enum.Font.SourceSans
+Split.Text = ""
+Split.TextColor3 = Color3.fromRGB(0, 0, 0)
+Split.TextSize = 14.000
+Split.MouseButton1Click:Connect(function()
+	Player.Character.UpperTorso.Waist:Remove()
+end)
+
+Title_4.Name = "Title"
+Title_4.Parent = PlayerPg
+Title_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title_4.BackgroundTransparency = 1.000
+Title_4.Position = UDim2.new(0.469959855, 0, 0.0754385963, 0)
+Title_4.Size = UDim2.new(0, 177, 0, 27)
+Title_4.Font = Enum.Font.RobotoCondensed
+Title_4.Text = "AntiKick"
+Title_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title_4.TextSize = 19.000
+
+AntiKick.Name = "AntiKick"
+AntiKick.Parent = Title_4
+AntiKick.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+AntiKick.BorderSizePixel = 0
+AntiKick.Position = UDim2.new(0.896226406, 0, 0, 0)
+AntiKick.Size = UDim2.new(0, 46, 0, 27)
+AntiKick.Font = Enum.Font.SourceSans
+AntiKick.Text = ""
+AntiKick.TextColor3 = Color3.fromRGB(0, 0, 0)
+AntiKick.TextSize = 14.000
+AntiKick.MouseButton1Click:Connect(function()
+	local vu = game:GetService("VirtualUser")
+	game:GetService("Players").LocalPlayer.Idled:connect(function()
+		vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		wait(1)
+		vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+	end)
+end)
+
+MiscPg.Name = "MiscPg"
+MiscPg.Parent = Backround
+MiscPg.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MiscPg.BackgroundTransparency = 1
+MiscPg.BorderSizePixel = 0
+MiscPg.Position = UDim2.new(0.00666666683, 0, 0.970175505, 0)
+MiscPg.Selectable = true
+MiscPg.Size = UDim2.new(0, 749, 0, 570)
+
+Title_5.Name = "Title"
+Title_5.Parent = MiscPg
+Title_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title_5.BackgroundTransparency = 1.000
+Title_5.Position = UDim2.new(-0.00133511424, 0, 0.0754385963, 0)
+Title_5.Size = UDim2.new(0, 155, 0, 27)
+Title_5.Font = Enum.Font.RobotoCondensed
+Title_5.Text = "Spam Fireball"
+Title_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title_5.TextSize = 19.000
+
+FireballSpam.Name = "FireballSpam"
+FireballSpam.Parent = Title_5
+FireballSpam.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+FireballSpam.BorderSizePixel = 0
+FireballSpam.Position = UDim2.new(1.01880705, 0, 0, 0)
+FireballSpam.Size = UDim2.new(0, 46, 0, 27)
+FireballSpam.Font = Enum.Font.SourceSans
+FireballSpam.Text = ""
+FireballSpam.TextColor3 = Color3.fromRGB(0, 0, 0)
+FireballSpam.TextSize = 14.000
+FireballSpam.MouseButton1Click:Connect(function()
+	if FireballSpam.BackgroundColor3 == Color3.fromRGB(39, 39, 39) then
+
+		FireballSpam.BackgroundColor3 = Color3.fromRGB(255,255,255)
+		EnergyShield()
+	else
+		FireballSpam.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+	end
+end)
+
+Title_6.Name = "Title"
+Title_6.Parent = MiscPg
+Title_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title_6.BackgroundTransparency = 1.000
+Title_6.Position = UDim2.new(-0.00133511424, 0, 0.157894731, 0)
+Title_6.Size = UDim2.new(0, 155, 0, 27)
+Title_6.Font = Enum.Font.RobotoCondensed
+Title_6.Text = "Spam KillingIntent"
+Title_6.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title_6.TextSize = 19.000
+
+SpamIntent.Name = "SpamIntent"
+SpamIntent.Parent = Title_6
+SpamIntent.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+SpamIntent.BorderSizePixel = 0
+SpamIntent.Position = UDim2.new(1.01880705, 0, 0, 0)
+SpamIntent.Size = UDim2.new(0, 46, 0, 27)
+SpamIntent.Font = Enum.Font.SourceSans
+SpamIntent.Text = ""
+SpamIntent.TextColor3 = Color3.fromRGB(0, 0, 0)
+SpamIntent.TextSize = 14.000
+SpamIntent.MouseButton1Click:Connect(function()
+	if SpamIntent.BackgroundColor3 == Color3.fromRGB(39, 39, 39) then
+
+		SpamIntent.BackgroundColor3 = Color3.fromRGB(255,255,255)
+		SpamKillingIntent()
+	else
+		SpamIntent.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+	end
+
+end)
+
+Title_7.Name = "Title"
+Title_7.Parent = MiscPg
+Title_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title_7.BackgroundTransparency = 1.000
+Title_7.Position = UDim2.new(0.520694256, 0, 0.0754385889, 0)
+Title_7.Size = UDim2.new(0, 155, 0, 27)
+Title_7.Font = Enum.Font.RobotoCondensed
+Title_7.Text = "Follow Target"
+Title_7.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title_7.TextSize = 19.000
+
+FollowToggle.Name = "FollowToggle"
+FollowToggle.Parent = Title_7
+FollowToggle.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+FollowToggle.BorderSizePixel = 0
+FollowToggle.Position = UDim2.new(1.01880705, 0, 0, 0)
+FollowToggle.Size = UDim2.new(0, 46, 0, 27)
+FollowToggle.Font = Enum.Font.SourceSans
+FollowToggle.Text = ""
+FollowToggle.TextColor3 = Color3.fromRGB(0, 0, 0)
+FollowToggle.TextSize = 14.000
+FollowToggle.MouseButton1Click:Connect(function()
+	if FollowToggle.BackgroundColor3 == Color3.fromRGB(39, 39, 39) then
+		FollowToggle.BackgroundColor3 = Color3.fromRGB(255,255,255)
+		local FindPlayer = game.Players:FindFirstChild(TextBox_2.Text)
+		
+		if FindPlayer then
+			
+		
+		repeat
+			wait()
+			local Pos0 = FindPlayer.Character.UpperTorso.Position.X
+			local Pos1 = FindPlayer.Character.UpperTorso.Position.Y
+			local Pos2 = FindPlayer.Character.UpperTorso.Position.Z
+			
+			Tws:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0.7), {CFrame = CFrame.new(Pos0,Pos1,Pos2)}):Play()
+			
+			until FollowToggle.BackgroundColor3 == Color3.fromRGB(39, 39, 39)
+		end
+	else
+		FollowToggle.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+	end
+end)
+
+Title_8.Name = "Title"
+Title_8.Parent = MiscPg
+Title_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title_8.BackgroundTransparency = 1.000
+Title_8.Position = UDim2.new(0.519359171, 0, 0.135087714, 0)
+Title_8.Size = UDim2.new(0, 155, 0, 27)
+Title_8.Font = Enum.Font.RobotoCondensed
+Title_8.Text = "Reap Target"
+Title_8.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title_8.TextSize = 19.000
+
+FollowToggle_2.Name = "FollowToggle"
+FollowToggle_2.Parent = Title_8
+FollowToggle_2.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+FollowToggle_2.BorderSizePixel = 0
+FollowToggle_2.Position = UDim2.new(1.01880705, 0, 0, 0)
+FollowToggle_2.Size = UDim2.new(0, 46, 0, 27)
+FollowToggle_2.Font = Enum.Font.SourceSans
+FollowToggle_2.Text = ""
+FollowToggle_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+FollowToggle_2.TextSize = 14.000
+FollowToggle_2.MouseButton1Click:Connect(function()
+	local FindPlayer = game.Players:FindFirstChild(TextBox_2.Text)
+	
+	if FindPlayer then
+		local args = {
+			[1] = {
+				[1] = "Skill_SoulReap",
+				[2] = FindPlayer
+			}
+		}
+
+		game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(args))
+
+	end
+end)
+
+TextBox_2.Parent = MiscPg
+TextBox_2.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+TextBox_2.BorderSizePixel = 0
+TextBox_2.Position = UDim2.new(0.520694256, 0, 0.215789467, 0)
+TextBox_2.Size = UDim2.new(0, 331, 0, 27)
+TextBox_2.Font = Enum.Font.SourceSans
+TextBox_2.PlaceholderText = "Select Target"
+TextBox_2.Text = Player.Name
+TextBox_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox_2.TextScaled = true
+TextBox_2.TextSize = 14.000
+TextBox_2.TextWrapped = true
+statchecker()
+
+BackroundFrame.Name = "BackroundFrame"
+BackroundFrame.Parent = MiscPg
+BackroundFrame.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+BackroundFrame.BorderSizePixel = 0
+BackroundFrame.Position = UDim2.new(0.520694256, 0, 0.400000006, 0)
+BackroundFrame.Size = UDim2.new(0, 331, 0, 138)
+
+TextLabel.Parent = BackroundFrame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Size = UDim2.new(0, 120, 0, 34)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Fist"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 20.000
+
+FistVal.Name = "FistVal"
+FistVal.Parent = TextLabel
+FistVal.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FistVal.BackgroundTransparency = 1.000
+FistVal.Position = UDim2.new(0.996344924, 0, 0, 0)
+FistVal.Size = UDim2.new(0, 208, 0, 34)
+FistVal.Font = Enum.Font.SourceSans
+FistVal.Text = "NotFound"
+FistVal.TextColor3 = Color3.fromRGB(255, 255, 255)
+FistVal.TextScaled = true
+FistVal.TextSize = 20.000
+FistVal.TextWrapped = true
+
+TextLabel_2.Parent = BackroundFrame
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Position = UDim2.new(-0.00302114803, 0, 0.287653625, 0)
+TextLabel_2.Size = UDim2.new(0, 120, 0, 34)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = "Body"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextSize = 20.000
+
+BodyVal.Name = "BodyVal"
+BodyVal.Parent = TextLabel_2
+BodyVal.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+BodyVal.BackgroundTransparency = 1.000
+BodyVal.Position = UDim2.new(0.996344924, 0, 0, 0)
+BodyVal.Size = UDim2.new(0, 208, 0, 34)
+BodyVal.Font = Enum.Font.SourceSans
+BodyVal.Text = "NotFound"
+BodyVal.TextColor3 = Color3.fromRGB(255, 255, 255)
+BodyVal.TextScaled = true
+BodyVal.TextSize = 20.000
+BodyVal.TextWrapped = true
+
+TextLabel_3.Parent = BackroundFrame
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.Position = UDim2.new(-0.00302114803, 0, 0.57530725, 0)
+TextLabel_3.Size = UDim2.new(0, 120, 0, 34)
+TextLabel_3.Font = Enum.Font.SourceSans
+TextLabel_3.Text = "Psychic"
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextSize = 20.000
+
+PsychicVal.Name = "PsychicVal"
+PsychicVal.Parent = TextLabel_3
+PsychicVal.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PsychicVal.BackgroundTransparency = 1.000
+PsychicVal.Position = UDim2.new(1.00467825, 0, 0, 0)
+PsychicVal.Size = UDim2.new(0, 208, 0, 34)
+PsychicVal.Font = Enum.Font.SourceSans
+PsychicVal.Text = "NotFound"
+PsychicVal.TextColor3 = Color3.fromRGB(255, 255, 255)
+PsychicVal.TextScaled = true
+PsychicVal.TextSize = 20.000
+PsychicVal.TextWrapped = true
+
+TextButton.Parent = MiscPg
+TextButton.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0.520694256, 0, 0.296491206, 0)
+TextButton.Size = UDim2.new(0, 331, 0, 30)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "Target Stats"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+TextButton.MouseButton1Click:Connect(statchecker)
+
+list.Name = "list"
+list.Parent = TextButton
+list.BackgroundTransparency = 1.000
+list.LayoutOrder = 2
+list.Position = UDim2.new(0.034743201, 0, 0, 0)
+list.Size = UDim2.new(0, 29, 0, 30)
+list.ZIndex = 2
+list.Image = "rbxassetid://3926305904"
+list.ImageRectOffset = Vector2.new(644, 364)
+list.ImageRectSize = Vector2.new(36, 36)
+
+Player.Chatted:Connect(function(msg)
+	if msg == "/e r" then
+		ScreenGui:Destroy()
+		Top:Destroy()
+	end
+end)
+
