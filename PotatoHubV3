@@ -1,1 +1,9 @@
-loadstring(game:HttpGet('https://pastebin.com/raw/w3eT2cjC', true))()
+local Player = game:GetService("Players").LocalPlayer
+
+if Key == "Potato" then
+	if Player.UserId == 2385124288 then
+	print("You're Whitelisted Pockie Potato")
+	end
+else	
+	Player.Kick("Either Wrong Key or You didnt register for a key, if you need a key contact *Pocket Potato*#7724")
+end
