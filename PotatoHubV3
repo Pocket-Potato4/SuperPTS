@@ -2,7 +2,11 @@ local Player = game:GetService("Players").LocalPlayer
 
 if Key == "Potato" then
 	if Player.UserId == 2385124288 then
-	print("You're Whitelisted Pockie Potato")
+	print("Hello Pockie")
+	end
+elseif Key == "choom" then
+	if Player.UserId == 288315813 then
+		print("You're Whitelisted Choom Choomers")
 	end
 else	
 	Player.Kick("Either Wrong Key or You didnt register for a key, if you need a key contact *Pocket Potato*#7724")
