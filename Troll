@@ -1,0 +1,10 @@
+local aE = 0
+
+repeat
+	wait()
+	game:GetService("StarterGui"):SetCore("SendNotification", {Title = "E", Text = "UWU UWU UWU UWU UWU UWU UWU", Duration = 10})
+	game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("UwU", "All")
+
+until aE == 30
+
+game.Players.LocalPlayer:Kick("UWU UWU UWU UWU UWU UWU UWU UWU UWU UWU UWU UWU UWU UWU UWU")
