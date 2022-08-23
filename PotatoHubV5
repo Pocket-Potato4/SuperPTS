@@ -1,0 +1,1371 @@
+local Player = game.Players.LocalPlayer
+local Rep = game:GetService("ReplicatedStorage")
+local Event = game:GetService("ReplicatedStorage").RemoteEvent
+local UIS = game:GetService("UserInputService")
+
+
+
+local PotatoHubV5 = Instance.new("ScreenGui")
+local MainTop = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local Sidebar = Instance.new("Frame")
+local GoPlayerPage = Instance.new("TextButton")
+local GoPvPPage = Instance.new("TextButton")
+local GoFarmPage = Instance.new("TextButton")
+local GoTeleportsPage = Instance.new("TextButton")
+local PlayerPage = Instance.new("ScrollingFrame")
+local FunctionTitle = Instance.new("TextLabel")
+local FunctionDescription = Instance.new("TextLabel")
+local Split = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+local FunctionTitle_2 = Instance.new("TextLabel")
+local FunctionDescription_2 = Instance.new("TextLabel")
+local Respawn = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local FunctionTitle_3 = Instance.new("TextLabel")
+local FunctionDescription_3 = Instance.new("TextLabel")
+local AutoRespawn = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local FunctionTitle_4 = Instance.new("TextLabel")
+local FunctionDescription_4 = Instance.new("TextLabel")
+local RespawnWhendead = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local FunctionTitle_5 = Instance.new("TextLabel")
+local FunctionDescription_5 = Instance.new("TextLabel")
+local HideFistAura = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local FunctionTitle_6 = Instance.new("TextLabel")
+local FunctionDescription_6 = Instance.new("TextLabel")
+local TextButton = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+local FunctionTitle_7 = Instance.new("TextLabel")
+local FunctionDescription_7 = Instance.new("TextLabel")
+local TextButton_2 = Instance.new("TextButton")
+local UICorner_7 = Instance.new("UICorner")
+local Title_2 = Instance.new("TextLabel")
+local FunctionTitle_8 = Instance.new("TextLabel")
+local FunctionDescription_8 = Instance.new("TextLabel")
+local AntiVoid = Instance.new("TextButton")
+local UICorner_8 = Instance.new("UICorner")
+local Divider = Instance.new("Frame")
+local PvpPage = Instance.new("ScrollingFrame")
+local FunctionTitle_9 = Instance.new("TextLabel")
+local FunctionDescription_9 = Instance.new("TextLabel")
+local SpamIntent = Instance.new("TextButton")
+local UICorner_9 = Instance.new("UICorner")
+local FunctionTitle_10 = Instance.new("TextLabel")
+local FunctionDescription_10 = Instance.new("TextLabel")
+local TpTarget = Instance.new("TextButton")
+local UICorner_10 = Instance.new("UICorner")
+local FunctionTitle_11 = Instance.new("TextLabel")
+local FunctionDescription_11 = Instance.new("TextLabel")
+local FollowTarget = Instance.new("TextButton")
+local UICorner_11 = Instance.new("UICorner")
+local FunctionTitle_12 = Instance.new("TextLabel")
+local FunctionDescription_12 = Instance.new("TextLabel")
+local ReapTarget = Instance.new("TextButton")
+local UICorner_12 = Instance.new("UICorner")
+local Target = Instance.new("TextBox")
+local UICorner_13 = Instance.new("UICorner")
+local FunctionTitle_13 = Instance.new("TextLabel")
+local FunctionDescription_13 = Instance.new("TextLabel")
+local SpamSphere = Instance.new("TextButton")
+local UICorner_14 = Instance.new("UICorner")
+local FarmingPage = Instance.new("ScrollingFrame")
+local FunctionTitle_14 = Instance.new("TextLabel")
+local FunctionDescription_14 = Instance.new("TextLabel")
+local AntiKick = Instance.new("TextButton")
+local UICorner_15 = Instance.new("UICorner")
+local FunctionTitle_15 = Instance.new("TextLabel")
+local FunctionDescription_15 = Instance.new("TextLabel")
+local FarmBT = Instance.new("TextButton")
+local UICorner_16 = Instance.new("UICorner")
+local Note = Instance.new("TextLabel")
+local TeleportsPage = Instance.new("ScrollingFrame")
+local TeleportSelect = Instance.new("TextLabel")
+local Teleport = Instance.new("TextButton")
+local DropDown = Instance.new("TextButton")
+local DropDownFrame = Instance.new("ScrollingFrame")
+local SelectSpawn = Instance.new("TextButton")
+local SelectCityPort = Instance.new("TextButton")
+local SelectIceBerg = Instance.new("TextButton")
+local SelectTornado = Instance.new("TextButton")
+local SelectVolcano = Instance.new("TextButton")
+local SelectZenIsland = Instance.new("TextButton")
+local SelectBlueStar = Instance.new("TextButton")
+local SelectGreenStar = Instance.new("TextButton")
+local SelectOrangeStar = Instance.new("TextButton")
+local SelectReapersBasement = Instance.new("TextButton")
+local SelectCrystal = Instance.new("TextButton")
+local SecruityTop = Instance.new("Frame")
+local MainFrame = Instance.new("Frame")
+local NoteCredits = Instance.new("TextLabel")
+local IDBox = Instance.new("TextBox")
+local Confirm = Instance.new("TextButton")
+local maxhp = game.Players.LocalPlayer.Character.Humanoid.Health
+
+function respawn()
+	local p0 = game.Players.LocalPlayer.Character.UpperTorso.Position.X
+	local p1 = game.Players.LocalPlayer.Character.UpperTorso.Position.Y
+	local p2 = game.Players.LocalPlayer.Character.UpperTorso.Position.Z
+
+	Player.Character:MoveTo(Vector3.new(0,15000,0))
+	Event:FireServer({"Respawn"})
+	game.Players.LocalPlayer.Character.Humanoid:Remove()
+	wait(1.75)
+	Player.Character:MoveTo(p0,p1,p2)
+	
+end
+
+
+
+--Properties:
+
+PotatoHubV5.Name = "PotatoHubV5"
+PotatoHubV5.Parent = game.CoreGui
+PotatoHubV5.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+MainTop.Name = "MainTop"
+MainTop.Parent = PotatoHubV5
+MainTop.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+MainTop.BorderSizePixel = 0
+MainTop.Position = UDim2.new(0, 0, 0, 0)
+MainTop.Size = UDim2.new(0, 800, 0, 33)
+MainTop.Active = true
+MainTop.Draggable = true
+MainTop.Visible = false
+
+Title.Name = "Title"
+Title.Parent = MainTop
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.Size = UDim2.new(0, 358, 0, 33)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "Potato Hub V5, Super Power Training Simulator"
+Title.TextColor3 = Color3.fromRGB(13, 202, 0)
+Title.TextSize = 20.000
+
+Sidebar.Name = "Sidebar"
+Sidebar.Parent = MainTop
+Sidebar.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Sidebar.BorderSizePixel = 0
+Sidebar.Position = UDim2.new(0, 0, 1, 0)
+Sidebar.Size = UDim2.new(0, 210, 0, 528)
+
+GoPlayerPage.Name = "GoPlayerPage"
+GoPlayerPage.Parent = Sidebar
+GoPlayerPage.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+GoPlayerPage.BorderSizePixel = 0
+GoPlayerPage.Position = UDim2.new(0.0571428575, 0, 0.0662878752, 0)
+GoPlayerPage.Size = UDim2.new(0, 185, 0, 31)
+GoPlayerPage.Font = Enum.Font.SourceSans
+GoPlayerPage.Text = "Local Player"
+GoPlayerPage.TextColor3 = Color3.fromRGB(13, 202, 0)
+GoPlayerPage.TextSize = 20.000
+GoPlayerPage.MouseButton1Click:Connect(function()
+	PlayerPage.Visible = true
+	PvpPage.Visible = false
+	FarmingPage.Visible = false
+	TeleportsPage.Visible = false
+end)
+
+GoPvPPage.Name = "GoPvPPage"
+GoPvPPage.Parent = Sidebar
+GoPvPPage.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+GoPvPPage.BorderSizePixel = 0
+GoPvPPage.Position = UDim2.new(0.0571428575, 0, 0.151515156, 0)
+GoPvPPage.Size = UDim2.new(0, 185, 0, 31)
+GoPvPPage.Font = Enum.Font.SourceSans
+GoPvPPage.Text = "PvP & Glitches"
+GoPvPPage.TextColor3 = Color3.fromRGB(13, 202, 0)
+GoPvPPage.TextSize = 20.000
+GoPvPPage.MouseButton1Click:Connect(function()
+	PlayerPage.Visible = false
+	PvpPage.Visible = true
+	FarmingPage.Visible = false
+	TeleportsPage.Visible = false
+end)
+
+GoFarmPage.Name = "GoFarmPage"
+GoFarmPage.Parent = Sidebar
+GoFarmPage.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+GoFarmPage.BorderSizePixel = 0
+GoFarmPage.Position = UDim2.new(0.0571428575, 0, 0.238636374, 0)
+GoFarmPage.Size = UDim2.new(0, 185, 0, 31)
+GoFarmPage.Font = Enum.Font.SourceSans
+GoFarmPage.Text = "Farming"
+GoFarmPage.TextColor3 = Color3.fromRGB(13, 202, 0)
+GoFarmPage.TextSize = 20.000
+GoFarmPage.MouseButton1Click:Connect(function()
+	PlayerPage.Visible = false
+	PvpPage.Visible = false
+	FarmingPage.Visible = true
+	TeleportsPage.Visible = false
+end)
+
+GoTeleportsPage.Name = "GoTeleportsPage"
+GoTeleportsPage.Parent = Sidebar
+GoTeleportsPage.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+GoTeleportsPage.BorderSizePixel = 0
+GoTeleportsPage.Position = UDim2.new(0.0571428575, 0, 0.323863655, 0)
+GoTeleportsPage.Size = UDim2.new(0, 185, 0, 31)
+GoTeleportsPage.Font = Enum.Font.SourceSans
+GoTeleportsPage.Text = "Teleports"
+GoTeleportsPage.TextColor3 = Color3.fromRGB(13, 202, 0)
+GoTeleportsPage.TextSize = 20.000
+GoTeleportsPage.MouseButton1Click:Connect(function()
+	PlayerPage.Visible = false
+	PvpPage.Visible = false
+	FarmingPage.Visible = false
+	TeleportsPage.Visible = true
+end)
+
+PlayerPage.Name = "PlayerPage"
+PlayerPage.Parent = MainTop
+PlayerPage.Active = true
+PlayerPage.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+PlayerPage.BorderSizePixel = 0
+PlayerPage.Position = UDim2.new(0.262499988, 0, 1, 0)
+PlayerPage.Size = UDim2.new(0, 590, 0, 528)
+PlayerPage.CanvasSize = UDim2.new(0, 0, 17, 0)
+PlayerPage.ScrollBarThickness = 1
+
+FunctionTitle.Name = "FunctionTitle"
+FunctionTitle.Parent = PlayerPage
+FunctionTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionTitle.BackgroundTransparency = 1.000
+FunctionTitle.Position = UDim2.new(0.0203389823, 0, 0.0662878752, 0)
+FunctionTitle.Size = UDim2.new(0, 188, 0, 35)
+FunctionTitle.Font = Enum.Font.SourceSans
+FunctionTitle.Text = "Split"
+FunctionTitle.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionTitle.TextSize = 20.000
+FunctionTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+FunctionDescription.Name = "FunctionDescription"
+FunctionDescription.Parent = FunctionTitle
+FunctionDescription.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionDescription.BackgroundTransparency = 1.000
+FunctionDescription.Position = UDim2.new(-0.00093760388, 0, 0.500378847, 0)
+FunctionDescription.Size = UDim2.new(0, 329, 0, 35)
+FunctionDescription.Font = Enum.Font.SourceSans
+FunctionDescription.Text = "Splits Your Body so you can multi train or do something else"
+FunctionDescription.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionDescription.TextSize = 15.000
+FunctionDescription.TextXAlignment = Enum.TextXAlignment.Left
+
+Split.Name = "Split"
+Split.Parent = FunctionTitle
+Split.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Split.BorderSizePixel = 0
+Split.Position = UDim2.new(2.69148946, 0, 0.214664564, 0)
+Split.Size = UDim2.new(0, 44, 0, 37)
+Split.Font = Enum.Font.SourceSans
+Split.Text = ""
+Split.TextColor3 = Color3.fromRGB(0, 0, 0)
+Split.TextSize = 14.000
+Split.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character.UpperTorso.Waist:Remove()
+end)
+
+UICorner.Parent = Split
+
+FunctionTitle_2.Name = "FunctionTitle"
+FunctionTitle_2.Parent = PlayerPage
+FunctionTitle_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionTitle_2.BackgroundTransparency = 1.000
+FunctionTitle_2.Position = UDim2.new(0.0203389823, 0, 0.164772719, 0)
+FunctionTitle_2.Size = UDim2.new(0, 188, 0, 35)
+FunctionTitle_2.Font = Enum.Font.SourceSans
+FunctionTitle_2.Text = "Respawn"
+FunctionTitle_2.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionTitle_2.TextSize = 20.000
+FunctionTitle_2.TextXAlignment = Enum.TextXAlignment.Left
+
+FunctionDescription_2.Name = "FunctionDescription"
+FunctionDescription_2.Parent = FunctionTitle_2
+FunctionDescription_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionDescription_2.BackgroundTransparency = 1.000
+FunctionDescription_2.Position = UDim2.new(-0.000937612727, 0, 0.500378788, 0)
+FunctionDescription_2.Size = UDim2.new(0, 188, 0, 35)
+FunctionDescription_2.Font = Enum.Font.SourceSans
+FunctionDescription_2.Text = "Respawns your character and then will be brought back to your location"
+FunctionDescription_2.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionDescription_2.TextSize = 15.000
+FunctionDescription_2.TextXAlignment = Enum.TextXAlignment.Left
+
+Respawn.Name = "Respawn"
+Respawn.Parent = FunctionTitle_2
+Respawn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Respawn.BorderSizePixel = 0
+Respawn.Position = UDim2.new(2.69148946, 0, 0.214664564, 0)
+Respawn.Size = UDim2.new(0, 44, 0, 37)
+Respawn.Font = Enum.Font.SourceSans
+Respawn.Text = ""
+Respawn.TextColor3 = Color3.fromRGB(0, 0, 0)
+Respawn.TextSize = 14.000
+Respawn.MouseButton1Click:Connect(respawn)
+
+UICorner_2.Parent = Respawn
+
+FunctionTitle_3.Name = "FunctionTitle"
+FunctionTitle_3.Parent = PlayerPage
+FunctionTitle_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionTitle_3.BackgroundTransparency = 1.000
+FunctionTitle_3.Position = UDim2.new(0.0186440665, 0, 0.263257563, 0)
+FunctionTitle_3.Size = UDim2.new(0, 188, 0, 35)
+FunctionTitle_3.Font = Enum.Font.SourceSans
+FunctionTitle_3.Text = "Auto Respawn"
+FunctionTitle_3.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionTitle_3.TextSize = 20.000
+FunctionTitle_3.TextXAlignment = Enum.TextXAlignment.Left
+
+FunctionDescription_3.Name = "FunctionDescription"
+FunctionDescription_3.Parent = FunctionTitle_3
+FunctionDescription_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionDescription_3.BackgroundTransparency = 1.000
+FunctionDescription_3.Position = UDim2.new(-0.000937612727, 0, 0.500378788, 0)
+FunctionDescription_3.Size = UDim2.new(0, 188, 0, 35)
+FunctionDescription_3.Font = Enum.Font.SourceSans
+FunctionDescription_3.Text = "Respawns you when damage is taken [cant save you from someone much stronger]"
+FunctionDescription_3.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionDescription_3.TextSize = 15.000
+FunctionDescription_3.TextXAlignment = Enum.TextXAlignment.Left
+
+AutoRespawn.Name = "AutoRespawn"
+AutoRespawn.Parent = FunctionTitle_3
+AutoRespawn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+AutoRespawn.BorderSizePixel = 0
+AutoRespawn.Position = UDim2.new(2.69148946, 0, 0.214664564, 0)
+AutoRespawn.Size = UDim2.new(0, 44, 0, 37)
+AutoRespawn.Font = Enum.Font.SourceSans
+AutoRespawn.Text = ""
+AutoRespawn.TextColor3 = Color3.fromRGB(0, 0, 0)
+AutoRespawn.TextSize = 14.000
+AutoRespawn.MouseButton1Click:Connect(function()
+	if AutoRespawn.BackgroundColor3 == Color3.fromRGB(30, 30, 30)  then
+		AutoRespawn.BackgroundColor3 = Color3.fromRGB(13, 202, 0)
+		
+		repeat
+			wait()
+			if game.Players.LocalPlayer.Character.Humanoid.Health ~= maxhp then
+				respawn()
+			end
+		until AutoRespawn.BackgroundColor3 == Color3.fromRGB(30, 30, 30)
+	else
+		AutoRespawn.BackgroundColor3 = Color3.fromRGB(30,30,30)
+	end
+end)
+
+UICorner_3.Parent = AutoRespawn
+
+FunctionTitle_4.Name = "FunctionTitle"
+FunctionTitle_4.Parent = PlayerPage
+FunctionTitle_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionTitle_4.BackgroundTransparency = 1.000
+FunctionTitle_4.Position = UDim2.new(0.0169491526, 0, 0.361742407, 0)
+FunctionTitle_4.Size = UDim2.new(0, 188, 0, 35)
+FunctionTitle_4.Font = Enum.Font.SourceSans
+FunctionTitle_4.Text = "Respawn When Dead"
+FunctionTitle_4.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionTitle_4.TextSize = 20.000
+FunctionTitle_4.TextXAlignment = Enum.TextXAlignment.Left
+
+FunctionDescription_4.Name = "FunctionDescription"
+FunctionDescription_4.Parent = FunctionTitle_4
+FunctionDescription_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionDescription_4.BackgroundTransparency = 1.000
+FunctionDescription_4.Position = UDim2.new(-0.000937612727, 0, 0.500378788, 0)
+FunctionDescription_4.Size = UDim2.new(0, 188, 0, 35)
+FunctionDescription_4.Font = Enum.Font.SourceSans
+FunctionDescription_4.Text = "Respawns the player when is dead"
+FunctionDescription_4.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionDescription_4.TextSize = 15.000
+FunctionDescription_4.TextXAlignment = Enum.TextXAlignment.Left
+
+RespawnWhendead.Name = "Respawn When dead"
+RespawnWhendead.Parent = FunctionTitle_4
+RespawnWhendead.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+RespawnWhendead.BorderSizePixel = 0
+RespawnWhendead.Position = UDim2.new(2.69148946, 0, 0.214664564, 0)
+RespawnWhendead.Size = UDim2.new(0, 44, 0, 37)
+RespawnWhendead.Font = Enum.Font.SourceSans
+RespawnWhendead.Text = ""
+RespawnWhendead.TextColor3 = Color3.fromRGB(0, 0, 0)
+RespawnWhendead.TextSize = 14.000
+RespawnWhendead.MouseButton1Click:Connect(function()
+	if RespawnWhendead.BackgroundColor3 == Color3.fromRGB(30, 30, 30)  then
+		RespawnWhendead.BackgroundColor3 = Color3.fromRGB(13, 202, 0)
+
+		repeat
+			wait()
+			if game.Players.LocalPlayer.Character.Humanoid.Health == 0 then
+				respawn()
+			end
+		until RespawnWhendead.BackgroundColor3 == Color3.fromRGB(30, 30, 30)
+	else
+		RespawnWhendead.BackgroundColor3 = Color3.fromRGB(30,30,30)
+	end
+end)
+
+UICorner_4.Parent = RespawnWhendead
+
+FunctionTitle_5.Name = "FunctionTitle"
+FunctionTitle_5.Parent = PlayerPage
+FunctionTitle_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionTitle_5.BackgroundTransparency = 1.000
+FunctionTitle_5.Position = UDim2.new(0.0135593219, 0, 0.547348499, 0)
+FunctionTitle_5.Size = UDim2.new(0, 188, 0, 35)
+FunctionTitle_5.Font = Enum.Font.SourceSans
+FunctionTitle_5.Text = "Hide Fist Aura"
+FunctionTitle_5.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionTitle_5.TextSize = 20.000
+FunctionTitle_5.TextXAlignment = Enum.TextXAlignment.Left
+
+FunctionDescription_5.Name = "FunctionDescription"
+FunctionDescription_5.Parent = FunctionTitle_5
+FunctionDescription_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionDescription_5.BackgroundTransparency = 1.000
+FunctionDescription_5.Position = UDim2.new(-0.000937612727, 0, 0.500378788, 0)
+FunctionDescription_5.Size = UDim2.new(0, 188, 0, 35)
+FunctionDescription_5.Font = Enum.Font.SourceSans
+FunctionDescription_5.Text = "Hides your aura that your fiststrength emits"
+FunctionDescription_5.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionDescription_5.TextSize = 15.000
+FunctionDescription_5.TextXAlignment = Enum.TextXAlignment.Left
+
+HideFistAura.Name = "HideFistAura"
+HideFistAura.Parent = FunctionTitle_5
+HideFistAura.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+HideFistAura.BorderSizePixel = 0
+HideFistAura.Position = UDim2.new(2.69148946, 0, 0.214664564, 0)
+HideFistAura.Size = UDim2.new(0, 44, 0, 37)
+HideFistAura.Font = Enum.Font.SourceSans
+HideFistAura.Text = ""
+HideFistAura.TextColor3 = Color3.fromRGB(0, 0, 0)
+HideFistAura.TextSize = 14.000
+HideFistAura.MouseButton1Click:Connect(function()
+	if HideFistAura.BackgroundColor3 == Color3.fromRGB(30, 30, 30) then
+		HideFistAura.BackgroundColor3 = Color3.fromRGB(13, 202, 0)
+		repeat 
+			wait()	
+			local aura1 = game.Players.LocalPlayer.Character.LeftHand:FindFirstChild("Aura1")
+			local aura2 = game.Players.LocalPlayer.Character.LeftHand:FindFirstChild("Aura2")
+			local aura3 = game.Players.LocalPlayer.Character.RightHand:FindFirstChild("Aura1")
+			local aura4 = game.Players.LocalPlayer.Character.RightHand:FindFirstChild("Aura2")
+			
+			if aura1 then
+				aura1:Destroy()
+			end
+			
+			if aura2 then
+				aura2:Destroy()
+			end
+			
+			if aura3 then
+				aura3:Destroy()
+			end
+			
+			if aura4 then
+				aura4:Destroy()
+			end
+		until HideFistAura.BackgroundColor3 == Color3.fromRGB(30, 30, 30)
+	else	
+		HideFistAura.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+	end
+end)
+
+UICorner_5.Parent = HideFistAura
+
+FunctionTitle_6.Name = "FunctionTitle"
+FunctionTitle_6.Parent = PlayerPage
+FunctionTitle_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionTitle_6.BackgroundTransparency = 1.000
+FunctionTitle_6.Position = UDim2.new(0.011864407, 0, 0.639928699, 0)
+FunctionTitle_6.Size = UDim2.new(0, 188, 0, 35)
+FunctionTitle_6.Font = Enum.Font.SourceSans
+FunctionTitle_6.Text = "Hide Body Aura"
+FunctionTitle_6.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionTitle_6.TextSize = 20.000
+FunctionTitle_6.TextXAlignment = Enum.TextXAlignment.Left
+
+FunctionDescription_6.Name = "FunctionDescription"
+FunctionDescription_6.Parent = FunctionTitle_6
+FunctionDescription_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionDescription_6.BackgroundTransparency = 1.000
+FunctionDescription_6.Position = UDim2.new(-0.000937612727, 0, 0.500378788, 0)
+FunctionDescription_6.Size = UDim2.new(0, 188, 0, 35)
+FunctionDescription_6.Font = Enum.Font.SourceSans
+FunctionDescription_6.Text = "Hides Your Aura that your bodytoughness emits"
+FunctionDescription_6.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionDescription_6.TextSize = 15.000
+FunctionDescription_6.TextXAlignment = Enum.TextXAlignment.Left
+
+TextButton.Parent = FunctionTitle_6
+TextButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(2.69148946, 0, 0.214664564, 0)
+TextButton.Size = UDim2.new(0, 44, 0, 37)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = ""
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextSize = 14.000
+TextButton.MouseButton1Click:Connect(function()
+	if TextButton.BackgroundColor3 == Color3.fromRGB(30, 30, 30) then
+		TextButton.BackgroundColor3 = Color3.fromRGB(13, 202, 0)
+		repeat 
+			wait()	
+			local aura1 = game.Players.LocalPlayer.Character.UpperTorso:FindFirstChild("Aura1")
+			local aura2 = game.Players.LocalPlayer.Character.RightUpperLeg:FindFirstChild("Aura1")
+			local aura3 = game.Players.LocalPlayer.Character.LeftUpperLeg:FindFirstChild("Aura1")
+
+			if aura1 then
+				aura1:Destroy()
+			end
+
+			if aura2 then
+				aura2:Destroy()
+			end
+
+			if aura3 then
+				aura3:Destroy()
+			end
+
+			
+		until TextButton.BackgroundColor3 == Color3.fromRGB(30, 30, 30)
+	else	
+		TextButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+	end
+end)
+
+UICorner_6.Parent = TextButton
+
+FunctionTitle_7.Name = "FunctionTitle"
+FunctionTitle_7.Parent = PlayerPage
+FunctionTitle_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionTitle_7.BackgroundTransparency = 1.000
+FunctionTitle_7.Position = UDim2.new(0.0101694912, 0, 0.732843101, 0)
+FunctionTitle_7.Size = UDim2.new(0, 188, 0, 35)
+FunctionTitle_7.Font = Enum.Font.SourceSans
+FunctionTitle_7.Text = "Hide Lightning Aura"
+FunctionTitle_7.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionTitle_7.TextSize = 20.000
+FunctionTitle_7.TextXAlignment = Enum.TextXAlignment.Left
+
+FunctionDescription_7.Name = "FunctionDescription"
+FunctionDescription_7.Parent = FunctionTitle_7
+FunctionDescription_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionDescription_7.BackgroundTransparency = 1.000
+FunctionDescription_7.Position = UDim2.new(-0.000937612727, 0, 0.500378788, 0)
+FunctionDescription_7.Size = UDim2.new(0, 188, 0, 35)
+FunctionDescription_7.Font = Enum.Font.SourceSans
+FunctionDescription_7.Text = "Hides the lightning around your aura"
+FunctionDescription_7.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionDescription_7.TextSize = 15.000
+FunctionDescription_7.TextXAlignment = Enum.TextXAlignment.Left
+
+TextButton_2.Parent = FunctionTitle_7
+TextButton_2.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+TextButton_2.BorderSizePixel = 0
+TextButton_2.Position = UDim2.new(2.69148946, 0, 0.214664564, 0)
+TextButton_2.Size = UDim2.new(0, 44, 0, 37)
+TextButton_2.Font = Enum.Font.SourceSans
+TextButton_2.Text = ""
+TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_2.TextSize = 14.000
+TextButton_2.MouseButton1Click:Connect(function()
+	if TextButton_2.BackgroundColor3 == Color3.fromRGB(30, 30, 30) then
+		TextButton_2.BackgroundColor3 = Color3.fromRGB(13, 202, 0)
+		repeat 
+			wait()	
+			local aura1 = game.Players.LocalPlayer.Character.UpperTorso:FindFirstChild("Aura2")
+			
+			if aura1 then
+				aura1:Destroy()
+			end
+
+
+
+		until TextButton_2.BackgroundColor3 == Color3.fromRGB(30, 30, 30)
+	else	
+		TextButton_2.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+	end
+end)
+
+
+UICorner_7.Parent = TextButton_2
+
+Title_2.Name = "Title"
+Title_2.Parent = PlayerPage
+Title_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title_2.BackgroundTransparency = 1.000
+Title_2.Position = UDim2.new(0, 0, 0.467803031, 0)
+Title_2.Size = UDim2.new(0, 75, 0, 33)
+Title_2.Font = Enum.Font.SourceSans
+Title_2.Text = "Character"
+Title_2.TextColor3 = Color3.fromRGB(13, 202, 0)
+Title_2.TextSize = 15.000
+
+FunctionTitle_8.Name = "FunctionTitle"
+FunctionTitle_8.Parent = PlayerPage
+FunctionTitle_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionTitle_8.BackgroundTransparency = 1.000
+FunctionTitle_8.Position = UDim2.new(0.0118644061, 0, 0.825646162, 0)
+FunctionTitle_8.Size = UDim2.new(0, 188, 0, 35)
+FunctionTitle_8.Font = Enum.Font.SourceSans
+FunctionTitle_8.Text = "Anti Void"
+FunctionTitle_8.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionTitle_8.TextSize = 20.000
+FunctionTitle_8.TextXAlignment = Enum.TextXAlignment.Left
+
+FunctionDescription_8.Name = "FunctionDescription"
+FunctionDescription_8.Parent = FunctionTitle_8
+FunctionDescription_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionDescription_8.BackgroundTransparency = 1.000
+FunctionDescription_8.Position = UDim2.new(-0.000937612727, 0, 0.500378788, 0)
+FunctionDescription_8.Size = UDim2.new(0, 188, 0, 35)
+FunctionDescription_8.Font = Enum.Font.SourceSans
+FunctionDescription_8.Text = "What did you think buddy?"
+FunctionDescription_8.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionDescription_8.TextSize = 15.000
+FunctionDescription_8.TextXAlignment = Enum.TextXAlignment.Left
+
+AntiVoid.Name = "AntiVoid"
+AntiVoid.Parent = FunctionTitle_8
+AntiVoid.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+AntiVoid.BorderSizePixel = 0
+AntiVoid.Position = UDim2.new(2.69148946, 0, 0.214664564, 0)
+AntiVoid.Size = UDim2.new(0, 44, 0, 37)
+AntiVoid.Font = Enum.Font.SourceSans
+AntiVoid.Text = ""
+AntiVoid.TextColor3 = Color3.fromRGB(0, 0, 0)
+AntiVoid.TextSize = 14.000
+AntiVoid.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.Character.LeftHand:Destroy()
+end)
+
+UICorner_8.Parent = AntiVoid
+
+Divider.Name = "Divider"
+Divider.Parent = MainTop
+Divider.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+Divider.BorderColor3 = Color3.fromRGB(39, 39, 39)
+Divider.Position = UDim2.new(0.262499988, 0, 2.060606, 0)
+Divider.Size = UDim2.new(0, 0, 0, 469)
+
+PvpPage.Name = "PvpPage"
+PvpPage.Parent = MainTop
+PvpPage.Active = true
+PvpPage.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+PvpPage.BorderSizePixel = 0
+PvpPage.Position = UDim2.new(0.262499988, 0, 1, 0)
+PvpPage.Size = UDim2.new(0, 590, 0, 528)
+PvpPage.Visible = false
+
+FunctionTitle_9.Name = "FunctionTitle"
+FunctionTitle_9.Parent = PvpPage
+FunctionTitle_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionTitle_9.BackgroundTransparency = 1.000
+FunctionTitle_9.Position = UDim2.new(0.0203389823, 0, 0.0662878752, 0)
+FunctionTitle_9.Size = UDim2.new(0, 188, 0, 35)
+FunctionTitle_9.Font = Enum.Font.SourceSans
+FunctionTitle_9.Text = "Killing Intent Spam"
+FunctionTitle_9.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionTitle_9.TextSize = 20.000
+FunctionTitle_9.TextXAlignment = Enum.TextXAlignment.Left
+
+FunctionDescription_9.Name = "FunctionDescription"
+FunctionDescription_9.Parent = FunctionTitle_9
+FunctionDescription_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionDescription_9.BackgroundTransparency = 1.000
+FunctionDescription_9.Position = UDim2.new(-0.000937612727, 0, 0.500378788, 0)
+FunctionDescription_9.Size = UDim2.new(0, 188, 0, 35)
+FunctionDescription_9.Font = Enum.Font.SourceSans
+FunctionDescription_9.Text = "Really? why read description"
+FunctionDescription_9.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionDescription_9.TextSize = 15.000
+FunctionDescription_9.TextXAlignment = Enum.TextXAlignment.Left
+
+SpamIntent.Name = "SpamIntent"
+SpamIntent.Parent = FunctionTitle_9
+SpamIntent.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+SpamIntent.BorderSizePixel = 0
+SpamIntent.Position = UDim2.new(1.17021286, 0, 0.214664564, 0)
+SpamIntent.Size = UDim2.new(0, 44, 0, 37)
+SpamIntent.Font = Enum.Font.SourceSans
+SpamIntent.Text = ""
+SpamIntent.TextColor3 = Color3.fromRGB(0, 0, 0)
+SpamIntent.TextSize = 14.000
+SpamIntent.MouseButton1Click:Connect(function()
+	if SpamIntent.BackgroundColor3 == Color3.fromRGB(30, 30, 30) then
+		SpamIntent.BackgroundColor3 = Color3.fromRGB(13, 202, 0)
+		repeat 
+			wait()	
+		
+			local e = {[1] = {[1] = "Skill_KillingIntent_Start"}}
+			game:GetService("ReplicatedStorage").RemoteEvent:FireServer(unpack(e))
+
+
+
+		until SpamIntent.BackgroundColor3 == Color3.fromRGB(30, 30, 30)
+	else	
+		SpamIntent.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+	end
+end)
+
+
+UICorner_9.Parent = SpamIntent
+
+FunctionTitle_10.Name = "FunctionTitle"
+FunctionTitle_10.Parent = FunctionTitle_9
+FunctionTitle_10.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionTitle_10.BackgroundTransparency = 1.000
+FunctionTitle_10.Position = UDim2.new(1.50970066, 0, -0.0194264129, 0)
+FunctionTitle_10.Size = UDim2.new(0, 188, 0, 35)
+FunctionTitle_10.Font = Enum.Font.SourceSans
+FunctionTitle_10.Text = "Teleport To Target"
+FunctionTitle_10.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionTitle_10.TextSize = 20.000
+FunctionTitle_10.TextXAlignment = Enum.TextXAlignment.Left
+
+FunctionDescription_10.Name = "FunctionDescription"
+FunctionDescription_10.Parent = FunctionTitle_10
+FunctionDescription_10.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionDescription_10.BackgroundTransparency = 1.000
+FunctionDescription_10.Position = UDim2.new(-0.000937612727, 0, 0.500378788, 0)
+FunctionDescription_10.Size = UDim2.new(0, 188, 0, 35)
+FunctionDescription_10.Font = Enum.Font.SourceSans
+FunctionDescription_10.Text = "Teleports to target"
+FunctionDescription_10.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionDescription_10.TextSize = 15.000
+FunctionDescription_10.TextXAlignment = Enum.TextXAlignment.Left
+
+TpTarget.Name = "TpTarget"
+TpTarget.Parent = FunctionTitle_10
+TpTarget.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+TpTarget.BorderSizePixel = 0
+TpTarget.Position = UDim2.new(1.17021286, 0, 0.214664564, 0)
+TpTarget.Size = UDim2.new(0, 44, 0, 37)
+TpTarget.Font = Enum.Font.SourceSans
+TpTarget.Text = ""
+TpTarget.TextColor3 = Color3.fromRGB(0, 0, 0)
+TpTarget.TextSize = 14.000
+TpTarget.MouseButton1Click:Connect(function()
+	local findplr = game.Players:FindFirstChild(Target.Text)
+	
+	if findplr then
+		local p0 = findplr.character.UpperTorso.Position.X
+		local p1 = findplr.character.UpperTorso.Position.Y
+		local p2 = findplr.character.UpperTorso.Position.Z
+
+		game.Players.LocalPlayer.Character:MoveTo(Vector3.new(p0,p1,p2))
+	end
+end)
+
+UICorner_10.Parent = TpTarget
+
+FunctionTitle_11.Name = "FunctionTitle"
+FunctionTitle_11.Parent = PvpPage
+FunctionTitle_11.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionTitle_11.BackgroundTransparency = 1.000
+FunctionTitle_11.Position = UDim2.new(0.0186440665, 0, 0.164772719, 0)
+FunctionTitle_11.Size = UDim2.new(0, 188, 0, 35)
+FunctionTitle_11.Font = Enum.Font.SourceSans
+FunctionTitle_11.Text = "Follow Target"
+FunctionTitle_11.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionTitle_11.TextSize = 20.000
+FunctionTitle_11.TextXAlignment = Enum.TextXAlignment.Left
+
+FunctionDescription_11.Name = "FunctionDescription"
+FunctionDescription_11.Parent = FunctionTitle_11
+FunctionDescription_11.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionDescription_11.BackgroundTransparency = 1.000
+FunctionDescription_11.Position = UDim2.new(-0.000937612727, 0, 0.500378788, 0)
+FunctionDescription_11.Size = UDim2.new(0, 188, 0, 35)
+FunctionDescription_11.Font = Enum.Font.SourceSans
+FunctionDescription_11.Text = "Follow The Selected Player"
+FunctionDescription_11.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionDescription_11.TextSize = 15.000
+FunctionDescription_11.TextXAlignment = Enum.TextXAlignment.Left
+
+FollowTarget.Name = "FollowTarget"
+FollowTarget.Parent = FunctionTitle_11
+FollowTarget.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+FollowTarget.BorderSizePixel = 0
+FollowTarget.Position = UDim2.new(1.17021286, 0, 0.214664564, 0)
+FollowTarget.Size = UDim2.new(0, 44, 0, 37)
+FollowTarget.Font = Enum.Font.SourceSans
+FollowTarget.Text = ""
+FollowTarget.TextColor3 = Color3.fromRGB(0, 0, 0)
+FollowTarget.TextSize = 14.000
+FollowTarget.MouseButton1Click:Connect(function()
+	if FollowTarget.BackgroundColor3 == Color3.fromRGB(30, 30, 30) then
+		FollowTarget.BackgroundColor3 = Color3.fromRGB(13, 202, 0)
+		repeat 
+			wait()	
+			local findplr = game.Players:FindFirstChild(Target.Text)
+
+			if findplr then
+				local p0 = findplr.character.UpperTorso.Position.X
+				local p1 = findplr.character.UpperTorso.Position.Y
+				local p2 = findplr.character.UpperTorso.Position.Z
+
+				game.Players.LocalPlayer.Character:MoveTo(Vector3.new(p0,p1 + 5,p2))
+			end
+			
+		until FollowTarget.BackgroundColor3 == Color3.fromRGB(30, 30, 30)
+	else	
+		FollowTarget.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+	end
+end)
+
+UICorner_11.Parent = FollowTarget
+
+FunctionTitle_12.Name = "FunctionTitle"
+FunctionTitle_12.Parent = PvpPage
+FunctionTitle_12.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionTitle_12.BackgroundTransparency = 1.000
+FunctionTitle_12.Position = UDim2.new(0.0169491507, 0, 0.263257563, 0)
+FunctionTitle_12.Size = UDim2.new(0, 188, 0, 35)
+FunctionTitle_12.Font = Enum.Font.SourceSans
+FunctionTitle_12.Text = "Soul Reap"
+FunctionTitle_12.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionTitle_12.TextSize = 20.000
+FunctionTitle_12.TextXAlignment = Enum.TextXAlignment.Left
+
+FunctionDescription_12.Name = "FunctionDescription"
+FunctionDescription_12.Parent = FunctionTitle_12
+FunctionDescription_12.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionDescription_12.BackgroundTransparency = 1.000
+FunctionDescription_12.Position = UDim2.new(-0.000937612727, 0, 0.500378788, 0)
+FunctionDescription_12.Size = UDim2.new(0, 188, 0, 35)
+FunctionDescription_12.Font = Enum.Font.SourceSans
+FunctionDescription_12.Text = "Soul Reap The Selected Player"
+FunctionDescription_12.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionDescription_12.TextSize = 15.000
+FunctionDescription_12.TextXAlignment = Enum.TextXAlignment.Left
+
+ReapTarget.Name = "ReapTarget"
+ReapTarget.Parent = FunctionTitle_12
+ReapTarget.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+ReapTarget.BorderSizePixel = 0
+ReapTarget.Position = UDim2.new(1.17021286, 0, 0.214664564, 0)
+ReapTarget.Size = UDim2.new(0, 44, 0, 37)
+ReapTarget.Font = Enum.Font.SourceSans
+ReapTarget.Text = ""
+ReapTarget.TextColor3 = Color3.fromRGB(0, 0, 0)
+ReapTarget.TextSize = 14.000
+ReapTarget.MouseButton1Click:Connect(function()
+	local findplr = game.Players:FindFirstChild(Target.Text)
+
+	if findplr then
+		Event:FireServer({"Skill_SoulReap",findplr})
+	end
+end)
+
+UICorner_12.Parent = ReapTarget
+
+Target.Name = "Target"
+Target.Parent = PvpPage
+Target.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Target.Position = UDim2.new(0.0372881368, 0, 0.38257575, 0)
+Target.Size = UDim2.new(0, 252, 0, 29)
+Target.Font = Enum.Font.SourceSans
+Target.PlaceholderColor3 = Color3.fromRGB(4, 49, 0)
+Target.PlaceholderText = "Target"
+Target.Text = "<3"
+Target.TextColor3 = Color3.fromRGB(13, 202, 0)
+Target.TextSize = 14.000
+
+UICorner_13.Parent = Target
+
+FunctionTitle_13.Name = "FunctionTitle"
+FunctionTitle_13.Parent = PvpPage
+FunctionTitle_13.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionTitle_13.BackgroundTransparency = 1.000
+FunctionTitle_13.Position = UDim2.new(0.0152542358, 0, 0.465909064, 0)
+FunctionTitle_13.Size = UDim2.new(0, 188, 0, 35)
+FunctionTitle_13.Font = Enum.Font.SourceSans
+FunctionTitle_13.Text = "Spam Energy Sphere"
+FunctionTitle_13.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionTitle_13.TextSize = 20.000
+FunctionTitle_13.TextXAlignment = Enum.TextXAlignment.Left
+
+FunctionDescription_13.Name = "FunctionDescription"
+FunctionDescription_13.Parent = FunctionTitle_13
+FunctionDescription_13.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionDescription_13.BackgroundTransparency = 1.000
+FunctionDescription_13.Position = UDim2.new(-0.000937612727, 0, 0.500378788, 0)
+FunctionDescription_13.Size = UDim2.new(0, 188, 0, 35)
+FunctionDescription_13.Font = Enum.Font.SourceSans
+FunctionDescription_13.Text = "dood, i dont gotta explain this"
+FunctionDescription_13.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionDescription_13.TextSize = 15.000
+FunctionDescription_13.TextXAlignment = Enum.TextXAlignment.Left
+
+SpamSphere.Name = "SpamSphere"
+SpamSphere.Parent = FunctionTitle_13
+SpamSphere.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+SpamSphere.BorderSizePixel = 0
+SpamSphere.Position = UDim2.new(1.17021286, 0, 0.214664564, 0)
+SpamSphere.Size = UDim2.new(0, 44, 0, 37)
+SpamSphere.Font = Enum.Font.SourceSans
+SpamSphere.Text = ""
+SpamSphere.TextColor3 = Color3.fromRGB(0, 0, 0)
+SpamSphere.TextSize = 14.000
+SpamSphere.MouseButton1Click:Connect(function()
+	if SpamSphere.BackgroundColor3 == Color3.fromRGB(30, 30, 30) then
+		SpamSphere.BackgroundColor3 = Color3.fromRGB(13, 202, 0)
+		repeat 
+			wait()	
+			
+			local findplr = game.Players.LocalPlayer
+
+			local p0 = findplr.character.UpperTorso.Position.X
+			local p1 = findplr.character.UpperTorso.Position.Y
+			local p2 = findplr.character.UpperTorso.Position.Z
+			local e = {
+				[1] = {[1] = "Skill_SpherePunch",[2] = Vector3.new(p0,p1 + 1000 ,p2)}}
+			Event:FireServer(unpack(e))
+			
+		until SpamSphere.BackgroundColor3 == Color3.fromRGB(30, 30, 30)
+	else	
+		SpamSphere.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+	end
+end)
+
+UICorner_14.Parent = SpamSphere
+
+FarmingPage.Name = "FarmingPage"
+FarmingPage.Parent = MainTop
+FarmingPage.Active = true
+FarmingPage.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FarmingPage.BorderSizePixel = 0
+FarmingPage.Position = UDim2.new(0.262499988, 0, 1, 0)
+FarmingPage.Size = UDim2.new(0, 590, 0, 528)
+FarmingPage.Visible = false
+
+FunctionTitle_14.Name = "FunctionTitle"
+FunctionTitle_14.Parent = FarmingPage
+FunctionTitle_14.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionTitle_14.BackgroundTransparency = 1.000
+FunctionTitle_14.Position = UDim2.new(0.0152542368, 0, 0.0624999963, 0)
+FunctionTitle_14.Size = UDim2.new(0, 188, 0, 35)
+FunctionTitle_14.Font = Enum.Font.SourceSans
+FunctionTitle_14.Text = "AntiKick"
+FunctionTitle_14.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionTitle_14.TextSize = 20.000
+FunctionTitle_14.TextXAlignment = Enum.TextXAlignment.Left
+
+FunctionDescription_14.Name = "FunctionDescription"
+FunctionDescription_14.Parent = FunctionTitle_14
+FunctionDescription_14.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionDescription_14.BackgroundTransparency = 1.000
+FunctionDescription_14.Position = UDim2.new(-0.000937612727, 0, 0.500378788, 0)
+FunctionDescription_14.Size = UDim2.new(0, 188, 0, 35)
+FunctionDescription_14.Font = Enum.Font.SourceSans
+FunctionDescription_14.Text = "Being Idle will not remove you from the game"
+FunctionDescription_14.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionDescription_14.TextSize = 15.000
+FunctionDescription_14.TextXAlignment = Enum.TextXAlignment.Left
+
+AntiKick.Name = "AntiKick"
+AntiKick.Parent = FunctionTitle_14
+AntiKick.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+AntiKick.BorderSizePixel = 0
+AntiKick.Position = UDim2.new(2.69148946, 0, 0.214664564, 0)
+AntiKick.Size = UDim2.new(0, 44, 0, 37)
+AntiKick.Font = Enum.Font.SourceSans
+AntiKick.Text = ""
+AntiKick.TextColor3 = Color3.fromRGB(0, 0, 0)
+AntiKick.TextSize = 14.000
+AntiKick.MouseButton1Click:Connect(function()
+	local vu = game:GetService("VirtualUser")
+	game:GetService("Players").LocalPlayer.Idled:connect(function()
+		vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		wait(1)
+		vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+	end)
+end)
+
+UICorner_15.Parent = AntiKick
+
+FunctionTitle_15.Name = "FunctionTitle"
+FunctionTitle_15.Parent = FarmingPage
+FunctionTitle_15.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionTitle_15.BackgroundTransparency = 1.000
+FunctionTitle_15.Position = UDim2.new(0.0152542368, 0, 0.160984844, 0)
+FunctionTitle_15.Size = UDim2.new(0, 188, 0, 35)
+FunctionTitle_15.Font = Enum.Font.SourceSans
+FunctionTitle_15.Text = "Farm BodyToughness"
+FunctionTitle_15.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionTitle_15.TextSize = 20.000
+FunctionTitle_15.TextXAlignment = Enum.TextXAlignment.Left
+
+FunctionDescription_15.Name = "FunctionDescription"
+FunctionDescription_15.Parent = FunctionTitle_15
+FunctionDescription_15.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+FunctionDescription_15.BackgroundTransparency = 1.000
+FunctionDescription_15.Position = UDim2.new(-0.000937612727, 0, 0.500378788, 0)
+FunctionDescription_15.Size = UDim2.new(0, 188, 0, 35)
+FunctionDescription_15.Font = Enum.Font.SourceSans
+FunctionDescription_15.Text = ".-."
+FunctionDescription_15.TextColor3 = Color3.fromRGB(13, 202, 0)
+FunctionDescription_15.TextSize = 15.000
+FunctionDescription_15.TextXAlignment = Enum.TextXAlignment.Left
+
+FarmBT.Name = "FarmBT"
+FarmBT.Parent = FunctionTitle_15
+FarmBT.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+FarmBT.BorderSizePixel = 0
+FarmBT.Position = UDim2.new(2.69148946, 0, 0.214664564, 0)
+FarmBT.Size = UDim2.new(0, 44, 0, 37)
+FarmBT.Font = Enum.Font.SourceSans
+FarmBT.Text = ""
+FarmBT.TextColor3 = Color3.fromRGB(0, 0, 0)
+FarmBT.TextSize = 14.000
+
+UICorner_16.Parent = FarmBT
+
+Note.Name = "Note"
+Note.Parent = FarmingPage
+Note.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Note.BackgroundTransparency = 1.000
+Note.Position = UDim2.new(0.014316625, 0, 0.259848475, 0)
+Note.Size = UDim2.new(0, 188, 0, 35)
+Note.Font = Enum.Font.SourceSans
+Note.Text = "Note: You can't farm anything else using a higher training area so all you can do is auto farm BT "
+Note.TextColor3 = Color3.fromRGB(13, 202, 0)
+Note.TextSize = 15.000
+Note.TextXAlignment = Enum.TextXAlignment.Left
+
+TeleportsPage.Name = "TeleportsPage"
+TeleportsPage.Parent = MainTop
+TeleportsPage.Active = true
+TeleportsPage.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TeleportsPage.BorderSizePixel = 0
+TeleportsPage.Position = UDim2.new(0.262499988, 0, 1, 0)
+TeleportsPage.Size = UDim2.new(0, 590, 0, 528)
+TeleportsPage.Visible = false
+
+TeleportSelect.Name = "TeleportSelect"
+TeleportSelect.Parent = TeleportsPage
+TeleportSelect.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TeleportSelect.BackgroundTransparency = 1.000
+TeleportSelect.Position = UDim2.new(-0.000937562087, 0, 0.123484939, 0)
+TeleportSelect.Size = UDim2.new(0, 184, 0, 35)
+TeleportSelect.Font = Enum.Font.SourceSans
+TeleportSelect.Text = "Select A Place To teleport to"
+TeleportSelect.TextColor3 = Color3.fromRGB(13, 202, 0)
+TeleportSelect.TextSize = 15.000
+TeleportSelect.TextXAlignment = Enum.TextXAlignment.Left
+
+Teleport.Name = "Teleport"
+Teleport.Parent = TeleportSelect
+Teleport.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Teleport.BorderSizePixel = 0
+Teleport.Position = UDim2.new(0.801919341, 0, 0.999999881, 0)
+Teleport.Size = UDim2.new(0, 35, 0, 34)
+Teleport.Font = Enum.Font.SourceSans
+Teleport.Text = "TP"
+Teleport.TextColor3 = Color3.fromRGB(255, 255, 255)
+Teleport.TextSize = 14.000
+Teleport.MouseButton1Click:Connect(function()
+	if DropDown.Text == "Spawn" then
+		Player.Character:MoveTo(Vector3.new(430, 249, 878))
+	elseif DropDown.Text == "CityPort" then
+		Player.Character:MoveTo(Vector3.new(335, 263, -409))
+	elseif DropDown.Text == "IceBerg" then	
+		Player.Character:MoveTo(Vector3.new(1565, 254, 2227))
+	elseif DropDown.Text == "Tornado" then
+		Player.Character:MoveTo(Vector3.new(-2290, 969, 1082))
+	elseif DropDown.Text == "Volcano" then
+		Player.Character:MoveTo(Vector3.new(-2047, 731, -1830))
+	elseif DropDown.Text == "Crystal" then
+		Player.Character:MoveTo(Vector3.new(-2254, 1943, 1046))
+	elseif DropDown.Text == "Blue Star" then
+		Player.Character:MoveTo(Vector3.new(1176, 4789, -2293))
+	elseif DropDown.Text == "Green Star" then
+		Player.Character:MoveTo(Vector3.new(1380, 9274, 1648))
+	elseif DropDown.Text == "Orange Star" then
+		Player.Character:MoveTo(Vector3.new(-372, 15734, -12))
+	elseif DropDown.Text == "Zen Island" then
+		Player.Character:MoveTo(Vector3.new(-2601, 5533, -504))
+	elseif DropDown.Text == "Grim Reapers Basement" then	
+		Player.Character:MoveTo(Vector3.new(-246, 290, 958))
+	end
+end)
+
+DropDown.Name = "DropDown"
+DropDown.Parent = TeleportSelect
+DropDown.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+DropDown.BorderSizePixel = 0
+DropDown.Position = UDim2.new(0, 0, 1, 0)
+DropDown.Size = UDim2.new(0, 148, 0, 34)
+DropDown.Font = Enum.Font.SourceSans
+DropDown.Text = "Spawn"
+DropDown.TextColor3 = Color3.fromRGB(255, 255, 255)
+DropDown.TextSize = 14.000
+DropDown.MouseButton1Click:Connect(function()
+	if DropDownFrame.Visible == true then
+		DropDownFrame.Visible = false
+	else
+		DropDownFrame.Visible = true
+	end
+end)
+
+DropDownFrame.Name = "DropDownFrame"
+DropDownFrame.Parent = DropDown
+DropDownFrame.Active = true
+DropDownFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+DropDownFrame.BorderSizePixel = 0
+DropDownFrame.Position = UDim2.new(0, 0, 1, 0)
+DropDownFrame.Size = UDim2.new(0, 182, 0, 258)
+DropDownFrame.Visible = false
+DropDownFrame.CanvasSize = UDim2.new(0, 0, 30, 0)
+DropDownFrame.ScrollBarThickness = 3
+
+
+SelectSpawn.Name = "SelectSpawn"
+SelectSpawn.Parent = DropDownFrame
+SelectSpawn.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+SelectSpawn.BorderSizePixel = 0
+SelectSpawn.Position = UDim2.new(-0.00680272281, 0, 0.0019607842, 0)
+SelectSpawn.Size = UDim2.new(0, 148, 0, 34)
+SelectSpawn.Font = Enum.Font.SourceSans
+SelectSpawn.Text = "Spawn"
+SelectSpawn.TextColor3 = Color3.fromRGB(255, 255, 255)
+SelectSpawn.TextSize = 14.000
+SelectSpawn.MouseButton1Click:Connect(function()
+	DropDown.Text = "Spawn"
+	DropDownFrame.Visible = false
+end)
+
+SelectCityPort.Name = "SelectCityPort"
+SelectCityPort.Parent = DropDownFrame
+SelectCityPort.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+SelectCityPort.BorderSizePixel = 0
+SelectCityPort.Position = UDim2.new(-0.00680272281, 0, 0.0343137272, 0)
+SelectCityPort.Size = UDim2.new(0, 148, 0, 34)
+SelectCityPort.Font = Enum.Font.SourceSans
+SelectCityPort.Text = "CityPort"
+SelectCityPort.TextColor3 = Color3.fromRGB(255, 255, 255)
+SelectCityPort.TextSize = 14.000
+SelectCityPort.MouseButton1Click:Connect(function()
+	DropDown.Text = "CityPort"
+	DropDownFrame.Visible = false
+end)
+
+SelectIceBerg.Name = "SelectIceBerg"
+SelectIceBerg.Parent = DropDownFrame
+SelectIceBerg.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+SelectIceBerg.BorderSizePixel = 0
+SelectIceBerg.Position = UDim2.new(-0.00680272281, 0, 0.065686278, 0)
+SelectIceBerg.Size = UDim2.new(0, 148, 0, 34)
+SelectIceBerg.Font = Enum.Font.SourceSans
+SelectIceBerg.Text = "IceBerg"
+SelectIceBerg.TextColor3 = Color3.fromRGB(255, 255, 255)
+SelectIceBerg.TextSize = 14.000
+SelectIceBerg.MouseButton1Click:Connect(function()
+	DropDown.Text = "IceBerg"
+	DropDownFrame.Visible = false
+end)
+
+SelectTornado.Name = "SelectTornado"
+SelectTornado.Parent = DropDownFrame
+SelectTornado.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+SelectTornado.BorderSizePixel = 0
+SelectTornado.Position = UDim2.new(-0.00680272281, 0, 0.0990196168, 0)
+SelectTornado.Size = UDim2.new(0, 148, 0, 34)
+SelectTornado.Font = Enum.Font.SourceSans
+SelectTornado.Text = "Tornado"
+SelectTornado.TextColor3 = Color3.fromRGB(255, 255, 255)
+SelectTornado.TextSize = 14.000
+SelectTornado.MouseButton1Click:Connect(function()
+	DropDown.Text = "Tornado"
+	DropDownFrame.Visible = false
+end)
+
+SelectVolcano.Name = "SelectVolcano"
+SelectVolcano.Parent = DropDownFrame
+SelectVolcano.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+SelectVolcano.BorderSizePixel = 0
+SelectVolcano.Position = UDim2.new(-0.00680272281, 0, 0.132352948, 0)
+SelectVolcano.Size = UDim2.new(0, 148, 0, 34)
+SelectVolcano.Font = Enum.Font.SourceSans
+SelectVolcano.Text = "Volcano"
+SelectVolcano.TextColor3 = Color3.fromRGB(255, 255, 255)
+SelectVolcano.TextSize = 14.000
+SelectVolcano.MouseButton1Click:Connect(function()
+	DropDown.Text = "Volcano"
+	DropDownFrame.Visible = false
+end)
+
+SelectZenIsland.Name = "SelectZenIsland"
+SelectZenIsland.Parent = DropDownFrame
+SelectZenIsland.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+SelectZenIsland.BorderSizePixel = 0
+SelectZenIsland.Position = UDim2.new(-0.00680272281, 0, 0.16568628, 0)
+SelectZenIsland.Size = UDim2.new(0, 148, 0, 34)
+SelectZenIsland.Font = Enum.Font.SourceSans
+SelectZenIsland.Text = "Zen Island"
+SelectZenIsland.TextColor3 = Color3.fromRGB(255, 255, 255)
+SelectZenIsland.TextSize = 14.000
+SelectZenIsland.MouseButton1Click:Connect(function()
+	DropDown.Text = "Zen Island"
+	DropDownFrame.Visible = false
+end)
+
+SelectBlueStar.Name = "SelectBlueStar"
+SelectBlueStar.Parent = DropDownFrame
+SelectBlueStar.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+SelectBlueStar.BorderSizePixel = 0
+SelectBlueStar.Position = UDim2.new(-0.00680272281, 0, 0.199019611, 0)
+SelectBlueStar.Size = UDim2.new(0, 148, 0, 34)
+SelectBlueStar.Font = Enum.Font.SourceSans
+SelectBlueStar.Text = "Blue Star"
+SelectBlueStar.TextColor3 = Color3.fromRGB(255, 255, 255)
+SelectBlueStar.TextSize = 14.000
+SelectBlueStar.MouseButton1Click:Connect(function()
+	DropDown.Text = "Blue Star"
+	DropDownFrame.Visible = false
+end)
+
+SelectGreenStar.Name = "SelectGreenStar"
+SelectGreenStar.Parent = DropDownFrame
+SelectGreenStar.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+SelectGreenStar.BorderSizePixel = 0
+SelectGreenStar.Position = UDim2.new(-0.00680272281, 0, 0.232352942, 0)
+SelectGreenStar.Size = UDim2.new(0, 148, 0, 34)
+SelectGreenStar.Font = Enum.Font.SourceSans
+SelectGreenStar.Text = "Green Star"
+SelectGreenStar.TextColor3 = Color3.fromRGB(255, 255, 255)
+SelectGreenStar.TextSize = 14.000
+SelectGreenStar.MouseButton1Click:Connect(function()
+	DropDown.Text = "Green Star"
+	DropDownFrame.Visible = false
+end)
+
+
+SelectOrangeStar.Name = "SelectOrangeStar"
+SelectOrangeStar.Parent = DropDownFrame
+SelectOrangeStar.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+SelectOrangeStar.BorderSizePixel = 0
+SelectOrangeStar.Position = UDim2.new(-0.00680272281, 0, 0.265686274, 0)
+SelectOrangeStar.Size = UDim2.new(0, 148, 0, 34)
+SelectOrangeStar.Font = Enum.Font.SourceSans
+SelectOrangeStar.Text = "Orange Star"
+SelectOrangeStar.TextColor3 = Color3.fromRGB(255, 255, 255)
+SelectOrangeStar.TextSize = 14.000
+SelectOrangeStar.MouseButton1Click:Connect(function()
+	DropDown.Text = "Orange Star"
+	DropDownFrame.Visible = false
+end)
+
+SelectReapersBasement.Name = "SelectReapersBasement"
+SelectReapersBasement.Parent = DropDownFrame
+SelectReapersBasement.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+SelectReapersBasement.BorderSizePixel = 0
+SelectReapersBasement.Position = UDim2.new(-0.00680272281, 0, 0.299019605, 0)
+SelectReapersBasement.Size = UDim2.new(0, 148, 0, 34)
+SelectReapersBasement.Font = Enum.Font.SourceSans
+SelectReapersBasement.Text = "Grim Reapers Basement"
+SelectReapersBasement.TextColor3 = Color3.fromRGB(255, 255, 255)
+SelectReapersBasement.TextSize = 14.000
+SelectReapersBasement.MouseButton1Click:Connect(function()
+	DropDown.Text = "Grim Reapers Basement"
+	DropDownFrame.Visible = false
+end)
+
+SelectCrystal.Name = "SelectCrystal"
+SelectCrystal.Parent = DropDownFrame
+SelectCrystal.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+SelectCrystal.BorderSizePixel = 0
+SelectCrystal.Position = UDim2.new(-0.00680272281, 0, 0.332352936, 0)
+SelectCrystal.Size = UDim2.new(0, 148, 0, 34)
+SelectCrystal.Font = Enum.Font.SourceSans
+SelectCrystal.Text = "Crystal"
+SelectCrystal.TextColor3 = Color3.fromRGB(255, 255, 255)
+SelectCrystal.TextSize = 14.000
+SelectCrystal.MouseButton1Click:Connect(function()
+	DropDown.Text = "Crystal"
+	DropDownFrame.Visible = false
+end)
+
+SecruityTop.Name = "SecruityTop"
+SecruityTop.Parent = PotatoHubV5
+SecruityTop.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SecruityTop.BorderSizePixel = 0
+SecruityTop.Position = UDim2.new(0.365807682, 0, 0.225214243, 0)
+SecruityTop.Size = UDim2.new(0, 545, 0, 26)
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = SecruityTop
+MainFrame.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+MainFrame.BorderSizePixel = 0
+MainFrame.Position = UDim2.new(0, 0, 1, 0)
+MainFrame.Size = UDim2.new(0, 545, 0, 278)
+
+NoteCredits.Name = "Note & Credits"
+NoteCredits.Parent = MainFrame
+NoteCredits.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NoteCredits.BackgroundTransparency = 12.000
+NoteCredits.BorderSizePixel = 0
+NoteCredits.Size = UDim2.new(0, 545, 0, 82)
+NoteCredits.Font = Enum.Font.SourceSans
+NoteCredits.Text = "this is the fifth version of the gui, made by -{[Pocket Potato]}-#7724 on Discord, to get acess to the gui you need to contact him and get the info on how to get acesss"
+NoteCredits.TextColor3 = Color3.fromRGB(13, 202, 0)
+NoteCredits.TextScaled = true
+NoteCredits.TextSize = 14.000
+NoteCredits.TextWrapped = true
+
+IDBox.Name = "IDBox"
+IDBox.Parent = MainFrame
+IDBox.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+IDBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+IDBox.Position = UDim2.new(0.153578788, 0, 0.406474829, 0)
+IDBox.Size = UDim2.new(0, 353, 0, 40)
+IDBox.Font = Enum.Font.SourceSans
+IDBox.PlaceholderText = "User ID"
+IDBox.Text = ""
+IDBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+IDBox.TextSize = 14.000
+
+Confirm.Name = "Confirm"
+Confirm.Parent = MainFrame
+Confirm.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Confirm.BorderSizePixel = 0
+Confirm.Position = UDim2.new(0.293577999, 0, 0.633093536, 0)
+Confirm.Size = UDim2.new(0, 200, 0, 44)
+Confirm.Font = Enum.Font.SourceSans
+Confirm.Text = "Confirm"
+Confirm.TextColor3 = Color3.fromRGB(255, 255, 255)
+Confirm.TextSize = 14.000
+Confirm.MouseButton1Click:Connect(function()
+	if IDBox.Text == "2385124288" then
+		if game.Players.LocalPlayer.Name == "Pockie_Potato" or game.Players.LocalPlayer.Name == "Switchtone2" then
+			SecruityTop.Visible = false
+			MainTop.Visible = true
+		elseif IDBox.Text == "2852432638" then
+			SecruityTop.Visible = false
+			MainTop.Visible = true
+		end
+	end
+end)
+
+
+Player.Chatted:Connect(function(msg)
+	if msg == "/remove" then
+		PotatoHubV5:Destroy()
+	end
+end)
+
+UIS.InputBegan:Connect(function(input)
+	if input.KeyCode == Enum.KeyCode.RightAlt then
+		if MainTop.Visible == true then
+			MainTop.Visible = false
+		else
+			MainTop.Visible = true
+		end
+	end
+end)
