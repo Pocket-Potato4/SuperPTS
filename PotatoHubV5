@@ -1349,6 +1349,9 @@ Confirm.MouseButton1Click:Connect(function()
 		elseif IDBox.Text == "2852432638" then
 			SecruityTop.Visible = false
 			MainTop.Visible = true
+		elseif IDBox.Text == "1249356356" then
+			SecruityTop.Visible = false
+			MainTop.Visible = true	
 		end
 	end
 end)
