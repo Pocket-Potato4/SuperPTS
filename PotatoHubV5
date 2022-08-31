@@ -133,7 +133,7 @@ MainTop.Position = UDim2.new(0, 0, 0, 0)
 MainTop.Size = UDim2.new(0, 800, 0, 33)
 MainTop.Active = true
 MainTop.Draggable = true
-MainTop.Visible = false
+MainTop.Visible = true
 
 Title.Name = "Title"
 Title.Parent = MainTop
@@ -1298,6 +1298,7 @@ SecruityTop.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 SecruityTop.BorderSizePixel = 0
 SecruityTop.Position = UDim2.new(0.365807682, 0, 0.225214243, 0)
 SecruityTop.Size = UDim2.new(0, 545, 0, 26)
+SecruityTop.Visible = false
 
 MainFrame.Name = "MainFrame"
 MainFrame.Parent = SecruityTop
